@@ -1,4 +1,4 @@
-/* @import "node_modules/ol/ol.css";
+@import "node_modules/ol/ol.css";
 
 html,
 body {
@@ -75,7 +75,7 @@ body {
 .overlay-container label {
 	display: block;
 	margin-bottom: 5px;
-} */
+} 
 
 
 
