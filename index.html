@@ -1,0 +1,141 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/x-icon" href="https://openlayers.org/favicon.ico" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css">
+  <title>Using OpenLayers with Vite</title>
+</head>
+
+<body>
+  <div id="map" class="map"></div>
+
+
+  <div id="popup" class="ol-popup">
+    <a href="#" id="popup-closer" class="ol-popup-closer"></a>
+    <div id="popup-content"></div>
+  </div>
+
+  <div class="overlay-container">
+    <label>
+      <input type="checkbox" id="polygon" checked>
+      Polygon Prov Riau
+    </label>
+    <label>
+      <input type="checkbox" id="point" checked>
+      Titik Persebaran Banjir
+    </label>
+    <label>
+      <br>
+      <h5>Info:</h5>
+      <div id="info">&nbsp;</div>
+    </label>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script type="module" src="./main.js"></script>
+</body>
+
+</html> -->
+
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TerraFlow – GIS Flood Risk Mapping</title>
+
+  <link rel="icon" type="image/x-icon" href="https://openlayers.org/favicon.ico" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="./style.css">
+</head>
+
+<body id="top">
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+    <div class="container px-4">
+      <a class="navbar-brand fw-bold" href="index.html">TERRA<span style="color:var(--primary)">FLOW</span></a>
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar"
+        aria-controls="mainNavbar" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="mainNavbar">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+          <li class="nav-item"><a class="nav-link active" href="#top">Beranda</a></li>
+          <li class="nav-item"><a class="nav-link" href="/map/tabelGenangan.html">Data Genangan</a></li>
+          <!-- <li class="nav-item"><a class="nav-link" href="/map/tabel/dataPersepsi.html">Persepsi</a></li> -->
+          <li class="nav-item"><a class="nav-link" href="main.js">Peta Risiko</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div class="page-wrapper">
+    <div class="top-bar">
+      <span>GIS PROJECT · MITIGASI RISIKO GENANGAN</span>
+      <a href="#">WWW.TERRAFLOW.COM</a>
+    </div>
+
+    <section class="hero">
+      <div class="container">
+        <div class="hero-inner">
+          <div class="hero-left">
+            <div class="hero-badge">
+              <span class="hero-badge-dot"></span>
+              <span>Flood Risk & Community Insights</span>
+            </div>
+
+            <h1 class="hero-title">
+              TERRA <span class="fill">FLOW</span>
+            </h1>
+
+            <p class="hero-subtext">
+              Menganalisis risiko genangan pemukiman melalui integrasi data survei lapangan
+              dan persepsi masyarakat untuk solusi mitigasi yang lebih inklusif.
+            </p>
+
+            <div class="hero-cta-group">
+              <a href="./map/map.html" class="btn-primary-hero text-decoration-none">Analisis Peta</a>
+              <a href="#project" class="btn-outline-hero text-decoration-none">Pelajari Proyek</a>
+            </div>
+          </div>
+
+          <div class="hero-right">
+            <div class="hero-card">
+              <div class="hero-card-title">Tentang TerraFlow</div>
+              <div class="hero-card-heading">Sistem Informasi Geografis Terpadu</div>
+              <p class="hero-card-body">
+                Memetakan kerentanan banjir berdasarkan elevasi, kondisi drainase,
+                dan pengalaman langsung warga di setiap blok pemukiman.
+              </p>
+
+              <div class="hero-stats">
+                <div class="hero-stat-item"><strong>99+</strong>Titik Genangan</div>
+                <div class="hero-stat-item"><strong>450+</strong>Responden</div>
+                <div class="hero-stat-item"><strong>8</strong>Zona Prioritas</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+  <footer class="py-4" style="background:var(--bg-dark); border-top: 1px solid var(--glass-border);">
+    <div class="container text-center text-md-start d-md-flex justify-content-between align-items-center">
+      <span style="color:var(--text-dim); font-size:0.8rem;">© 2025 TerraFlow · Kelompok 5 Sistem Informasi
+        Geografis</span>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

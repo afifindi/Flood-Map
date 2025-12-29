@@ -1,0 +1,1605 @@
+{
+    "type": "FeatureCollection",
+    "features": [
+        {
+            "type": "Feature",
+            "properties": {
+                "ID": 1,
+                "Nama Lokasi": "Jalan Jenderal Sudirman (depan Masjid Al-Mujahidin)",
+                "Jenis_Permukaan": "Aspal",
+                "Kondisi_drainase": "Drainase dangkal dan tersumbat, genangan saat hujan deras."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    101.45,
+                    0.533
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "ID": 2,
+                "Nama Lokasi": "Jalan Soekarno-Hatta (simpang Tabek Gadang)",
+                "Jenis_Permukaan": "Aspal",
+                "Kondisi_drainase": "Parit tidak aktif, air hujan meluap ke jalan."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    101.3951,
+                    0.5245
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "ID": 3,
+                "Nama Lokasi": "Jalan HR Soebrantas (Pasar Pagi Arengka)",
+                "Jenis_Permukaan": "Aspal",
+                "Kondisi_drainase": "Drainase tersumbat sampah & kabel, genangan hingga 30 cm."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    101.3926,
+                    0.4812
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "ID": 4,
+                "Nama Lokasi": "Jalan Paus, Tangkerang Barat",
+                "Jenis_Permukaan": "Aspal",
+                "Kondisi_drainase": "Parit sempit dan dangkal, air tidak tertampung."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    101.4607,
+                    0.5091
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "ID": 5,
+                "Nama Lokasi": "Jalan Kuantan Raya",
+                "Jenis_Permukaan": "Aspal",
+                "Kondisi_drainase": "Parit tertutup bangunan, sering tergenang."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    101.4493,
+                    0.5129
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "ID": 6,
+                "Nama Lokasi": "Jalan Taskurun (dekat RS Santa Maria)",
+                "Jenis_Permukaan": "Aspal",
+                "Kondisi_drainase": "Drainase tidak berfungsi baik, genangan 10–20 cm."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    101.4548,
+                    0.5164
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "ID": 7,
+                "Nama Lokasi": "Jalan Riau (Simpang Empat Sukaramai Trade Center)",
+                "Jenis_Permukaan": "Aspal",
+                "Kondisi_drainase": "Drainase tertutup & kapasitas kecil, genangan rutin."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    101.4562,
+                    0.5147
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "ID": 8,
+                "Nama Lokasi": "Jalan Melur, Sukajadi",
+                "Jenis_Permukaan": "Aspal",
+                "Kondisi_drainase": "Drainase kecil dan tertutup sedimen."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    101.4379,
+                    0.5175
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "ID": 9,
+                "Nama Lokasi": "Jalan Rajawali Sakti, Panam",
+                "Jenis_Permukaan": "Aspal",
+                "Kondisi_drainase": "Drainase minim dan saluran tersumbat sampah."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    101.3993,
+                    0.4805
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "ID": 10,
+                "Nama Lokasi": "Jalan Garuda Sakti KM 3",
+                "Jenis_Permukaan": "Aspal",
+                "Kondisi_drainase": "Saluran tidak tersambung, air tergenang lama."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    101.3841,
+                    0.4743
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "ID": 11,
+                "Nama Lokasi": "Jalan Kaharuddin Nasution (Simpang Tiga Bandara)",
+                "Jenis_Permukaan": "Aspal",
+                "Kondisi_drainase": "Saluran air dangkal, sering banjir lokal."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    101.4518,
+                    0.4607
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "ID": 12,
+                "Nama Lokasi": "Jalan Parit Indah",
+                "Jenis_Permukaan": "Aspal",
+                "Kondisi_drainase": "Genangan karena sistem parit tidak lancar."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    101.471,
+                    0.5099
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "ID": 13,
+                "Nama Lokasi": "Jalan Delima, Tampan",
+                "Jenis_Permukaan": "Aspal",
+                "Kondisi_drainase": "Parit sempit, curah hujan tinggi sebabkan genangan."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    101.4048,
+                    0.4752
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "ID": 14,
+                "Nama Lokasi": "Jalan Suka Karya",
+                "Jenis_Permukaan": "Aspal",
+                "Kondisi_drainase": "Tidak ada saluran samping jalan, air tertahan."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    101.3929,
+                    0.4789
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "ID": 15,
+                "Nama Lokasi": "Jalan Cempedak, Rumbai",
+                "Jenis_Permukaan": "Aspal",
+                "Kondisi_drainase": "Drainase tidak berfungsi, genangan saat hujan lebat."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    101.4461,
+                    0.5481
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "ID": 16,
+                "Nama Lokasi": "Jembatan Siak V (Jembatan Sultan Abdul Jalil Alamuddin Syah) – Pekanbaru",
+                "Jenis_Permukaan": "Aspal",
+                "Kondisi_drainase": "Tersumbat sebagian, aliran lambat saat hujan tinggi; genangan hingga 20–30 cm di pangkal jembatan sisi kota."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    101.4316,
+                    0.53395
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "ID": 17,
+                "Nama Lokasi": "Kelurahan Meranti Pandak (Rumbai)",
+                "Jenis_Permukaan": "Aspal",
+                "Kondisi_drainase": "Drainase alami tersumbat sedimen; air menggenang lama saat hujan malam/subuh."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    101.4324,
+                    0.5735
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "ID": 18,
+                "Nama Lokasi": "Kelurahan Sri Meranti (Rumbai)",
+                "Jenis_Permukaan": "Aspal",
+                "Kondisi_drainase": "Permukiman tergenang 50–100 cm akibat luapan Sungai Siak dan saluran tersumbat; rawan tiap hujan deras."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    101.4208,
+                    0.5842
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "ID": 19,
+                "Nama Lokasi": "Jalan Paus Ujung (Rumbai)",
+                "Jenis_Permukaan": "Aspal",
+                "Kondisi_drainase": "Parit meluap ke badan jalan karena saluran tertutup dan minim pembersihan."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    101.4402,
+                    0.5569
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "ID": 20,
+                "Nama Lokasi": "Jalan Sudirman Ujung (akses ke Rumbai)",
+                "Jenis_Permukaan": "Aspal",
+                "Kondisi_drainase": "Genangan hingga 40 cm; jalan sempat ditutup pada hujan lebat awal 2025."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    101.4255,
+                    0.5524
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "ID": 21,
+                "Nama Lokasi": "Jalan Nelayan Ujung (tepi Sungai Siak)",
+                "Jenis_Permukaan": "Aspal",
+                "Kondisi_drainase": "Area rendah dekat sungai; genangan saat pasang + hujan."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    101.4172,
+                    0.5787
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "ID": 22,
+                "Nama Lokasi": "Perumahan Griya Permata Rumbai",
+                "Jenis_Permukaan": "Aspal",
+                "Kondisi_drainase": "Kompleks perumahan langganan genangan, drainase internal kurang efektif."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    101.4355,
+                    0.5674
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "ID": 23,
+                "Nama Lokasi": "Perumahan Bukit Indah Tanjung Rhu",
+                "Jenis_Permukaan": "Aspal",
+                "Kondisi_drainase": "Area perumahan padat; genangan saat hujan 30–40 cm; drainase tertutup bangunan."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    101.4725,
+                    0.5415
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "ID": 24,
+                "Nama Lokasi": "Jalan Soekarno-Hatta (Depan Gereja )",
+                "Jenis_Permukaan": "Aspal",
+                "Kondisi_drainase": "Jalan bergelombang dan saluran air tersumbat karena minim perawatan aliran air"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    101.4198,
+                    0.5188
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "ID": 25,
+                "Nama Lokasi": "Jl. Diponegoro No.55, Cinta Raja (Man 2 Pekanbaru)",
+                "Jenis_Permukaan": "Aspal",
+                "Kondisi_drainase": "Drainase tidak berfungsi dengan baik, dikarenakan tersumbat dengan sampah"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    101.4521,
+                    0.51103
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "ID": 26,
+                "Nama Lokasi": "Jl. Diponegoro 49-53, Cinta Raja (Persada Bunda)",
+                "Jenis_Permukaan": "Aspal",
+                "Kondisi_drainase": "Drainase tidak berfungsi dengan baik, dikarenakan tersumbat dengan sampah"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    101.45209,
+                    0.51186
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "ID": 27,
+                "Nama Lokasi": "Jl. Diponegoro No.34, Simpang Empat (Arya Duta Hotel)",
+                "Jenis_Permukaan": "Aspal",
+                "Kondisi_drainase": "Parit sempit dan dangkal, air tidak tertampung."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    101.4521,
+                    0.51537
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "ID": 28,
+                "Nama Lokasi": "Jl. Wr. Supratman Ujung, Suka Maju,",
+                "Jenis_Permukaan": "Aspal",
+                "Kondisi_drainase": "Parit sempit dan tersumbat dengan sampah."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    101.4568,
+                    0.5142
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "ID": 29,
+                "Nama Lokasi": "Jl. Wr. Supratman Ujung, Suka Maju,",
+                "Jenis_Permukaan": "Aspal",
+                "Kondisi_drainase": "Parit sempit dan tersumbat dengan sampah."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    101.4568,
+                    0.5156
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "ID": 30,
+                "Nama Lokasi": " Jl. MH Thamrin, Suka Maju",
+                "Jenis_Permukaan": "Aspal",
+                "Kondisi_drainase": "Drainase tidak baik dan tersumbat dengan sampah."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    101.4571,
+                    0.516009
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "ID": 31,
+                "Nama Lokasi": "Jl. Beringin 33-37, Suka Maju",
+                "Jenis_Permukaan": "Aspal",
+                "Kondisi_drainase": "Parit tersumbat dengan sampah dan rumput "
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    101.4607,
+                    0.5169
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "ID": 32,
+                "Nama Lokasi": " Jl. Kaharudin Nasution, Perhentian Marpoyan",
+                "Jenis_Permukaan": "Aspal",
+                "Kondisi_drainase": "Parit tersumbat dengan sampah dan rumput "
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    101.4529,
+                    0.4627
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "ID": 33,
+                "Nama Lokasi": "Jl. Kaharuddin Nasution 1, Simpang Tiga,",
+                "Jenis_Permukaan": "Aspal",
+                "Kondisi_drainase": "Parit tersumbat dengan sampah dan rumput "
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    101.45204,
+                    0.4607
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "ID": 34,
+                "Nama Lokasi": "Jl. Kaharuddin Nasution 1, Simpang Tiga",
+                "Jenis_Permukaan": "Aspal",
+                "Kondisi_drainase": "Parit tersumbat dengan sampah dan rumput "
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    101.4519,
+                    0.4607
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "ID": 35,
+                "Nama Lokasi": "Gang AMD RT 4 Tanjung Rhu",
+                "Jenis_Permukaan": "Aspal",
+                "Kondisi_drainase": "Tergenang pasca hujan & air pasang; tidak ada saluran pembuangan memadai."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    101.471,
+                    0.544
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "ID": 36,
+                "Nama Lokasi": "Jalan Sumber Sari (Tanjung Rhu)",
+                "Jenis_Permukaan": "Aspal",
+                "Kondisi_drainase": "Genangan rutin 40–70 cm saat Sungai Siak meluap; drainase tertutup lumpur dan rumah warga."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    101.468,
+                    0.542
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "ID": 37,
+                "Nama Lokasi": "Jalan Cempedak Tanjung Rhu",
+                "Jenis_Permukaan": "Aspal",
+                "Kondisi_drainase": "Parit kecil & dangkal, menyebabkan genangan > 20 cm saat hujan deras."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    101.4713,
+                    0.5426
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "ID": 38,
+                "Nama Lokasi": "Jalan Sri Purna Tanjung Rhu",
+                "Jenis_Permukaan": "Aspal",
+                "Kondisi_drainase": "Drainase tersumbat sampah, genangan hingga setengah roda motor."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    101.4701,
+                    0.5461
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "ID": 39,
+                "Nama Lokasi": "Jalan Ahmad Yani Ujung Tanjung Rhu",
+                "Jenis_Permukaan": "Aspal",
+                "Kondisi_drainase": "Titik rawan genangan di area belakang kantor kelurahan; parit dangkal."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    101.4662,
+                    0.5405
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "ID": 40,
+                "Nama Lokasi": "Perumahan Bukit Indah Tanjung Rhu",
+                "Jenis_Permukaan": "Aspal",
+                "Kondisi_drainase": "Area perumahan padat, genangan saat hujan 30–40 cm; drainase tertutup bangunan."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    101.4725,
+                    0.5415
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "ID": 41,
+                "Nama Lokasi": "Jalan MH Thamrin (Pusat Kota Pekanbaru)",
+                "Jenis_Permukaan": "Aspal",
+                "Kondisi_drainase": "Drainase relatif baik namun sempit,potensi genangan kecil saat hujan sangat deras karena aliran tersumbat sedimen & sampah ringan."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    101.4473,
+                    0.5352
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "ID": 42,
+                "Nama Lokasi": "Simpang Tiga Thamrin – Juanda",
+                "Jenis_Permukaan": "Aspal",
+                "Kondisi_drainase": "Parit kecil dan dangkal, genangan muncul saat hujan  30 menit."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    101.4482,
+                    0.5358
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "ID": 43,
+                "Nama Lokasi": "Jalan Bukit Barisan – Depan Ruko Tangkerang Timur",
+                "Jenis_Permukaan": "Aspal",
+                "Kondisi_drainase": "Tidak ada parit di sisi jalan, genangan menyebar saat hujan deras."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    101.4745,
+                    0.5325
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "ID": 44,
+                "Nama Lokasi": "Jalan Bukit Barisan – Dekat Masjid Al-Ikhlas",
+                "Jenis_Permukaan": "Aspal",
+                "Kondisi_drainase": "Saluran air kecil & dangkal, air mengalir lambat saat hujan."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    101.4728,
+                    0.532
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "ID": 45,
+                "Nama Lokasi": "Jalan Bukit Barisan – Cekungan 700m dari Harapan Raya",
+                "Jenis_Permukaan": "Aspal",
+                "Kondisi_drainase": "Lokasi berbentuk cekungan alami, genangan 20–35 cm."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    101.4715,
+                    0.5318
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "ID": 46,
+                "Nama Lokasi": "Jalan Bukit Barisan – Perumahan Bukit Barisan Indah",
+                "Jenis_Permukaan": "Aspal",
+                "Kondisi_drainase": "Drainase tersumbat sedimen, genangan setelah hujan 1–2 jam."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    101.4758,
+                    0.5332
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "ID": 47,
+                "Nama Lokasi": "Jalan Bukit Barisan – Dekat Persimpangan Harapan Raya",
+                "Jenis_Permukaan": "Aspal",
+                "Kondisi_drainase": "Parit dangkal, air sering meluap ke badan jalan."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    101.4769,
+                    0.5337
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "ID": 48,
+                "Nama Lokasi": "Jalan Bukit Barisan – Depan SDN 165 Pekanbaru",
+                "Jenis_Permukaan": "Aspal",
+                "Kondisi_drainase": "Parit sempit, air sering naik ke badan jalan saat hujan deras."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    101.4733,
+                    0.5319
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "ID": 49,
+                "Nama Lokasi": "Jalan Bukit Barisan – Belakang Perkantoran Tangkerang Timur",
+                "Jenis_Permukaan": "Aspal",
+                "Kondisi_drainase": "Cekungan rendah, air tertahan hingga 3–4 jam."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    0.5314,
+                    0.5314
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "ID": 50,
+                "Nama Lokasi": "Jalan Bukit Barisan – Gang Sederhana",
+                "Jenis_Permukaan": "Aspal",
+                "Kondisi_drainase": "Drainase tersumbat sampah rumah tangga."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    101.4761,
+                    0.5328
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "ID": 51,
+                "Nama Lokasi": "Jalan Bukit Barisan – Depan Apotek Mitra",
+                "Jenis_Permukaan": "Aspal",
+                "Kondisi_drainase": "Genangan 15–20 cm, parit dangkal."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    101.4739,
+                    0.5323
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "ID": 52,
+                "Nama Lokasi": "Jalan Bukit Barisan – Arah ke Jalan Parit Indah",
+                "Jenis_Permukaan": "Aspal",
+                "Kondisi_drainase": "Parit curam dan penuh sampah, menyebabkan aliran tersumbat."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    101.4779,
+                    0.5339
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "ID": 53,
+                "Nama Lokasi": "Jalan Bambukuning – Ruas Tengah Kelurahan",
+                "Jenis_Permukaan": "Aspal",
+                "Kondisi_drainase": "Drainase sempit dan tidak terhubung dengan saluran besar; potensi genangan saat hujan deras."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    101.455,
+                    0.535
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "ID": 54,
+                "Nama Lokasi": "Jalan Bambukuning Ujung – Arah ke Jalan Paus",
+                "Jenis_Permukaan": "Aspal",
+                "Kondisi_drainase": "Parit dangkal dan tertutup sedimen; air meluap ke badan jalan."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    101.457,
+                    0.5356
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "ID": 55,
+                "Nama Lokasi": "Jalan Bambukuning – Dekat Perumahan Warga",
+                "Jenis_Permukaan": "Aspal",
+                "Kondisi_drainase": "Daerah cekungan, air mengumpul di tengah jalan saat hujan."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    101.4538,
+                    0.5343
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "ID": 56,
+                "Nama Lokasi": "Gang Bambukuning II",
+                "Jenis_Permukaan": "Aspal",
+                "Kondisi_drainase": "Tidak ada saluran samping jalan; genangan kecil hingga 10–15 cm sering terjadi."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    101.4544,
+                    0.5352
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "ID": 57,
+                "Nama Lokasi": "Jalan Bambukuning – Akses ke Jalan Sisingamangaraja",
+                "Jenis_Permukaan": "Aspal",
+                "Kondisi_drainase": "Drainase terputus; air hujan mengalir lambat menuju saluran utama."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    101.4562,
+                    0.5361
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "ID": 58,
+                "Nama Lokasi": "Jalan Bambukuning – Depan Mushola Al-Ikhlas",
+                "Jenis_Permukaan": "Aspal",
+                "Kondisi_drainase": "Parit kecil & dangkal, air sering naik ke badan jalan."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    101.4558,
+                    0.5348
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "ID": 59,
+                "Nama Lokasi": "Jalan Bambukuning – Gang Melati",
+                "Jenis_Permukaan": "Beton",
+                "Kondisi_drainase": "Tidak ada drainase samping; genangan 5–10 cm saat hujan."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    101.4549,
+                    0.5354
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "ID": 60,
+                "Nama Lokasi": "Jalan Bambukuning – Titik Rendah Dekat Jembatan Kecil",
+                "Jenis_Permukaan": "Aspal",
+                "Kondisi_drainase": "Daerah cekungan, air menggenang cepat saat hujan."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    101.4526,
+                    0.5337
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "ID": 61,
+                "Nama Lokasi": "Jalan Kuantan Raya – Depan Bengkel Motor",
+                "Jenis_Permukaan": "Aspal",
+                "Kondisi_drainase": "Air bertahan lama karena tidak ada jalur keluar ke parit utama."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    101.4489,
+                    0.5131
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "ID": 62,
+                "Nama Lokasi": "Jalan Kuantan 7",
+                "Jenis_Permukaan": "Aspal",
+                "Kondisi_drainase": "Drainase kecil & tidak terhubung ke saluran besar."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    101.4487,
+                    0.5126
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "ID": 63,
+                "Nama Lokasi": "Jalan Kuantan Raya – Titik Rendah Secara Topografi",
+                "Jenis_Permukaan": "Aspal",
+                "Kondisi_drainase": "Titik cekungan alami, genangan 20–30 cm."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    101.4491,
+                    0.512
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "ID": 64,
+                "Nama Lokasi": "Jalan Kuantan Raya – Dekat Gedung Pertokoan",
+                "Jenis_Permukaan": "Aspal",
+                "Kondisi_drainase": "Drainase dangkal, air sering melintasi jalan."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    101.4512,
+                    0.5133
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "ID": 65,
+                "Nama Lokasi": "Jalan Kuantan Raya – Belakang Sekolah",
+                "Jenis_Permukaan": "Aspal",
+                "Kondisi_drainase": "Parit tersumbat sampah, genangan bertahan lama."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    101.4508,
+                    0.5122
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "ID": 66,
+                "Nama Lokasi": "Jalan Kuantan Raya – Titik Arah Sungai",
+                "Jenis_Permukaan": "Aspal",
+                "Kondisi_drainase": "Aliran air mengarah ke satu sisi  genangan 15 cm mudah terjadi."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    101.4485,
+                    0.5135
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "ID": 67,
+                "Nama Lokasi": "Jalan Kuantan Raya – Dekat Rumah Makan Kuantan",
+                "Jenis_Permukaan": "Aspal",
+                "Kondisi_drainase": "Parit tersumbat, aliran air melambat saat hujan."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    101.4499,
+                    0.5136
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "ID": 68,
+                "Nama Lokasi": "Jalan Kuantan Raya – Depan Kios Warga",
+                "Jenis_Permukaan": "Aspal",
+                "Kondisi_drainase": "Genangan 10–15 cm saat hujan deras."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    101.4496,
+                    0.5125
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "ID": 69,
+                "Nama Lokasi": "Jalan Kuantan Raya – Gang Flamboyan",
+                "Jenis_Permukaan": "Aspal",
+                "Kondisi_drainase": "Drainase kecil, air sulit mengalir."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    101.451,
+                    0.5127
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "ID": 70,
+                "Nama Lokasi": "Jalan Gobah – Dekat Gang Gobah 1",
+                "Jenis_Permukaan": "Aspal",
+                "Kondisi_drainase": "Drainase sempit, mudah tersumbat sampah harian."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    101.4524,
+                    0.5272
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "ID": 71,
+                "Nama Lokasi": "Jalan Hangtuah – Masjid Al Furqan",
+                "Jenis_Permukaan": "Aspal",
+                "Kondisi_drainase": "Sedimentasi tebal di drainase,genangan saat hujan."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    101.443,
+                    0.5338
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "ID": 72,
+                "Nama Lokasi": "Jalan Obor – Dekat Perumahan Warga",
+                "Jenis_Permukaan": "Aspal",
+                "Kondisi_drainase": "Drainase dangkal & tersumbat sedimen; air mengalir sangat lambat."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    101.4519,
+                    0.5058
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "ID": 73,
+                "Nama Lokasi": "RW 11, Kelurahan Mentangor (Kulim)",
+                "Jenis_Permukaan": "Aspal",
+                "Kondisi_drainase": "Genangan jalan dilaporkan Camat saat inspeksi banjir."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    101.453,
+                    0.506
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "ID": 74,
+                "Nama Lokasi": "Perumahan RW 14, Kelurahan Pebatuan (Kulim)",
+                "Jenis_Permukaan": "Aspal",
+                "Kondisi_drainase": "Titik banjir sesaat karena drainase di kawasan pedesaan tidak maksimal."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    101.4505,
+                    0.502
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "ID": 75,
+                "Nama Lokasi": "Jalan Teratai – Dekat Pasar Bawah",
+                "Jenis_Permukaan": "Aspal",
+                "Kondisi_drainase": "Drainase padat sampah, genangan sering terbentuk."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    101.4488,
+                    0.5281
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "ID": 76,
+                "Nama Lokasi": "Jalan Suka Karya – Panam",
+                "Jenis_Permukaan": "Aspal",
+                "Kondisi_drainase": "Parit kecil, genangan muncul saat hujan 30 menit."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    101.3793,
+                    0.4838
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "ID": 77,
+                "Nama Lokasi": "Jalan Rajawali – Sukajadi",
+                "Jenis_Permukaan": "Aspal",
+                "Kondisi_drainase": "Aliran air lambat, drainase tidak tersambung ke saluran besar."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    101.4355,
+                    0.5209
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "ID": 78,
+                "Nama Lokasi": "Gang Kuala Lumpur – Depan Pasar Kodim",
+                "Jenis_Permukaan": "Beton",
+                "Kondisi_drainase": "Daerah cekungan kecil, genangan bertahan lama."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    101.4583,
+                    0.5241
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "ID": 79,
+                "Nama Lokasi": "Jalan Kaharuddin Nasution – Dekat Jembatan",
+                "Jenis_Permukaan": "Aspal",
+                "Kondisi_drainase": "Direncanakan dibuat box culvert karena parit tidak mampu menampung debit hujan."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    101.4559,
+                    0.5059
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "ID": 80,
+                "Nama Lokasi": "Jalan Karyawan – Labuh Baru",
+                "Jenis_Permukaan": "Beton",
+                "Kondisi_drainase": "Tidak ada parit, air berkumpul di cekungan."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    101.4233,
+                    0.5118
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "ID": 81,
+                "Nama Lokasi": "Jalan Melur – Dekat Pasar Melur",
+                "Jenis_Permukaan": "Aspal",
+                "Kondisi_drainase": "Drainase dangkal & tersumbat, genangan 10–20 cm."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    101.4509,
+                    0.5241
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "ID": 82,
+                "Nama Lokasi": "Jalan Garuda Sakti KM 3",
+                "Jenis_Permukaan": "Aspal",
+                "Kondisi_drainase": "Parit terlalu kecil, aliran terhambat."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    101.3544,
+                    0.4777
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "ID": 83,
+                "Nama Lokasi": "Jalan Lobak – Arengka",
+                "Jenis_Permukaan": "Aspal",
+                "Kondisi_drainase": "Drainase sempit, mudah meluap."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    0.4961,
+                    0.4961
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "ID": 84,
+                "Nama Lokasi": "Jalan Sikumbang – Kota Tengah",
+                "Jenis_Permukaan": "Beton",
+                "Kondisi_drainase": "Tidak ada drainase memadai."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    101.4522,
+                    0.5197
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "ID": 85,
+                "Nama Lokasi": "Jalan Kutilang – Sukajadi",
+                "Jenis_Permukaan": "Aspal",
+                "Kondisi_drainase": "Aliran air lambat, daerah cekungan."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    101.4388,
+                    0.5205
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "ID": 86,
+                "Nama Lokasi": "Jalan Seroja – Arengka 1",
+                "Jenis_Permukaan": "Aspal",
+                "Kondisi_drainase": "Drainase tersumbat sampah pasar."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    101.4113,
+                    0.4932
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "ID": 87,
+                "Nama Lokasi": "Jalan Beringin – Payung Sekaki",
+                "Jenis_Permukaan": "Aspal",
+                "Kondisi_drainase": "Saluran tersumbat dan kotor."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    101.4209,
+                    0.5087
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "ID": 88,
+                "Nama Lokasi": "Jalan Tanjung Datuk – Dekat Pelabuhan",
+                "Jenis_Permukaan": "Aspal",
+                "Kondisi_drainase": "Luapan sungai + parit kecil."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    101.4604,
+                    0.5377
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "ID": 89,
+                "Nama Lokasi": "Jalan Karya Indah – Bukit Raya",
+                "Jenis_Permukaan": "Aspal",
+                "Kondisi_drainase": "Drainase tidak terhubung ke saluran besar."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    101.4452,
+                    0.4991
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "ID": 90,
+                "Nama Lokasi": "Jalan Kereta Api – Dekat Gudang",
+                "Jenis_Permukaan": "Aspal",
+                "Kondisi_drainase": "Parit penuh lumpur, air tidak mengalir."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    101.4639,
+                    0.5258
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "ID": 91,
+                "Nama Lokasi": "Jalan Harapan – Bukit Raya",
+                "Jenis_Permukaan": "Aspal",
+                "Kondisi_drainase": "Drainase terputus di beberapa titik, genangan muncul cepat."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    101.4458,
+                    0.5017
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "ID": 92,
+                "Nama Lokasi": "Jalan Balam – Sukajadi",
+                "Jenis_Permukaan": "Aspal",
+                "Kondisi_drainase": "Parit kecil & tidak tersambung."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    101.4379,
+                    0.5199
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "ID": 93,
+                "Nama Lokasi": "Jalan Rambutan – Tangkerang",
+                "Jenis_Permukaan": "Aspal",
+                "Kondisi_drainase": "Parit tersumbat daun & sampah."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    101.4695,
+                    0.5233
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "ID": 94,
+                "Nama Lokasi": "Jalan HOS Cokroaminoto – Dekat Pasar",
+                "Jenis_Permukaan": "Aspal",
+                "Kondisi_drainase": "Sedimentasi berat, aliran lambat."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    101.4561,
+                    0.5248
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "ID": 95,
+                "Nama Lokasi": "Jalan Kakap – Kampung Tengah",
+                "Jenis_Permukaan": "Beton",
+                "Kondisi_drainase": "Genangan lokal karena cekungan."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    101.4486,
+                    0.5201
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "ID": 96,
+                "Nama Lokasi": "Jalan Durian – Sukajadi",
+                "Jenis_Permukaan": "Aspal",
+                "Kondisi_drainase": "Drainase sempit dan tidak menyatu ke saluran besar."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    101.4402,
+                    0.5201
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "ID": 97,
+                "Nama Lokasi": "Jalan Hang Jebat – Senapelan",
+                "Jenis_Permukaan": "Aspal",
+                "Kondisi_drainase": "Drainase tertutup material bangunan."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    101.4475,
+                    0.5275
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "ID": 98,
+                "Nama Lokasi": "Jalan Kayu Manis – Panam",
+                "Jenis_Permukaan": "Aspal",
+                "Kondisi_drainase": "Parit dangkal, sering meluap."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    101.3833,
+                    0.4829
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "ID": 99,
+                "Nama Lokasi": "Jalan Lembah Sari – Kulim",
+                "Jenis_Permukaan": "Aspal",
+                "Kondisi_drainase": "Drainase minim; air mengumpul cepat."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    101.4511,
+                    0.5033
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "ID": 100,
+                "Nama Lokasi": "Jalan Bupati – Rumbai Pesisir",
+                "Jenis_Permukaan": "Aspal",
+                "Kondisi_drainase": "Genangan akibat luapan parit tepi jalan."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    101.4487,
+                    0.581
+                ]
+            }
+        }
+    ]
+}
