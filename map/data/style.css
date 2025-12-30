@@ -1,4 +1,4 @@
-/* .ol-popup {
+.ol-popup {
 	position: absolute;
 	background-color: white;
 	box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
@@ -39,7 +39,7 @@
 }
 .ol-popup-closer:after {
 	content: "✖";
-} */
+}
 html, body {
   margin: 0;
   height: 100%;

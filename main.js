@@ -42,29 +42,13 @@ const genangan = new VectorLayer({
       anchor: [0.5, 46],
       anchorXUnits: 'flaticon',
       anchorYUnits: 'pixels',
-      src: 'icon/Genangan 1.jpeg',
+      src: '../icon/Genangan 1.jpeg',
       width: 32,
       height: 32
     }))
   })
 });
 
-// const banjir = new VectorLayer({
-//   source: new VectorSource({
-//     format: new GeoJSON(),
-//     url: 'data/banjir.json'
-//   }),
-//   style: new Style({
-//     image: new Icon(({
-//       anchor: [0.5, 46],
-//       anchorXUnits: 'flaticon',
-//       anchorYUnits: 'pixels',
-//       src: 'icon/flood.png',
-//       width: 32,
-//       height: 32
-//     }))
-//   })
-// });
 
 const container = document.getElementById('popup');
 const content_element = document.getElementById('popup-content');
@@ -117,29 +101,6 @@ map.on('singleclick', function (evt) {
   }
 });
 
-map.addOverlay(overlay); //untuk menambah overlay
-// JS for click popup
-map.on('singleclick', function (evt) {
-  const feature = map.forEachFeatureAtPixel(evt.pixel, function (feature) {
-    return feature;
-  });
-  if (!feature) {
-    return;
-  }
-  const coordinate = evt.coordinate;
-  const content = '<h3>Nama Lokasi: ' + feature.get('Nama Lokasi') + '</h3>' + '<p>Jenis Permukaan: ' + feature.get('Jenis_Permukaan') + '</p>Kondisi Drainase: ' + feature.get('Kondisi_drainase');
-  content_element.innerHTML = content;
-  overlay.setPosition(coordinate);
-});
-
-const featureOverlay = new VectorLayer({
-  source: new VectorSource(),
-  map: map,
-  style: {
-    'stroke-color': 'rgba(255, 255, 255, 0.7)',
-    'stroke-width': 2,
-  },
-});
 
 let highlight;
 const highlightFeature = function (pixel) {

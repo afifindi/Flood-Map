@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -46,8 +46,69 @@
     </section>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script type="module" src="../main.js"></script>
+    <script type="module" src="./main.js"></script>
 
 </body>
 
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LiveForWell | Map</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css"
+    />
+
+    <link rel="stylesheet" href="../style.css" />
+  </head>
+
+  <body>
+    <nav class="top-navbar">
+      <div class="logo">LiveForWell</div>
+      <ul class="nav-menu">
+        <li><a href="../index.html">Dashboard</a></li>
+        <li class="active">Peta</li>
+        <li>Dataset</li>
+        <li>Analisis</li>
+      </ul>
+    </nav>
+
+    <section class="map-wrapper">
+      <div class="map-control">
+        <h6>Filter Data</h6>
+        <div class="form-check">
+          <input
+            class="form-check-input"
+            type="checkbox"
+            id="waterLayer"
+            checked
+          />
+          <label class="form-check-label">Wilayah (Polygon)</label>
+        </div>
+        <div class="form-check">
+          <input
+            class="form-check-input"
+            type="checkbox"
+            id="toxicLayer"
+            checked
+          />
+          <label class="form-check-label">Titik Genangan</label>
+        </div>
+      </div>
+
+      <div id="map"></div>
+
+      <div id="popup" class="ol-popup">
+        <a href="#" id="popup-closer" class="ol-popup-closer"></a>
+        <div id="popup-content"></div>
+      </div>
+    </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script type="module" src="../main.js"></script>
+  </body>
 </html>
