@@ -1,118 +1,325 @@
 <!DOCTYPE html>
 <html lang="id">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>TerraFlow | Map Analysis</title>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TerraFlow | Peta Risiko Genangan</title>
     
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css"
-    />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
     
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
-    
-    <link rel="stylesheet" href="../style.css" />
-
     <style>
-      /* --- 1. GLOBAL STYLE --- */
-      body, html { 
-        margin: 0; padding: 0; height: 100%; overflow: hidden; 
-        font-family: 'Inter', sans-serif;
-      }
+        body { margin: 0; font-family: 'Inter', sans-serif; background-color: #0b1120; }
+        
+        /* NAVBAR */
+        .navbar {
+            background-color: #020b16;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            padding: 0 20px;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            position: relative;
+            z-index: 1000;
+        }
+        .brand-terra { color: #ffffff; font-weight: 900; letter-spacing: 1px; font-size: 20px; text-decoration: none; }
+        .brand-flow { color: #3b82f6; font-weight: 900; letter-spacing: 1px; font-size: 20px; }
+        
+        .nav-links { margin-left: auto; }
+        .nav-link { color: #94a3b8; text-decoration: none; margin-left: 20px; font-size: 14px; font-weight: 600; }
+        .nav-link:hover, .nav-link.active { color: #ffffff; }
 
-      /* --- 2. HEADER ALA TERRAFLOW --- */
-      .top-navbar { 
-        height: 70px; 
-        z-index: 1000; 
-        position: relative; 
-        background-color: #020b16 !important;
-        border-bottom: 1px solid rgba(255,255,255,0.1);
-      }
-      
-      .brand-terra { color: #ffffff; font-weight: 900; letter-spacing: 1px; font-size: 24px; }
-      .brand-flow { color: #3b82f6; font-weight: 900; letter-spacing: 1px; font-size: 24px; }
-      
-      .nav-link { color: #a0aec0 !important; font-weight: 500; font-size: 14px; margin-left: 15px; }
-      .nav-link.active { color: #ffffff !important; font-weight: 700; }
-      .nav-link:hover { color: #3b82f6 !important; }
+        /* PETA */
+        #map {
+            width: 100%;
+            height: calc(100vh - 60px);
+            z-index: 1;
+            background-color: #0b1120;
+        }
 
-      /* --- 3. MAP WRAPPER --- */
-      .map-wrapper { position: relative; width: 100%; height: calc(100vh - 70px); }
-      #map { width: 100%; height: 100%; }
+        /* FILTER CARD */
+        .filter-card {
+            position: absolute;
+            top: 80px;
+            left: 20px;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+            z-index: 999;
+            width: 240px;
+        }
+        .filter-title {
+            font-size: 12px; font-weight: 800; text-transform: uppercase;
+            letter-spacing: 1px; color: #000; margin-bottom: 15px;
+            border-bottom: 2px solid #f1f5f9; padding-bottom: 10px;
+        }
+        .form-check { margin-bottom: 8px; display: flex; align-items: center; }
+        .form-check-input { width: 16px; height: 16px; margin-right: 10px; cursor: pointer; accent-color: #3b82f6; }
+        .form-check-label { font-size: 13px; color: #333; cursor: pointer; font-weight: 600; }
+        
+        .badge-count {
+            font-size: 10px; padding: 2px 6px; border-radius: 4px; color: white; margin-left: auto;
+        }
+        .bg-aspal { background-color: #22c55e; } /* Hijau */
+        .bg-beton { background-color: #64748b; } /* Abu */
 
-      /* --- 4. KOTAK KONTROL --- */
-      .map-control {
-        position: absolute; top: 20px; left: 20px; z-index: 999;
-        background-color: #ffffff; 
-        box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-        padding: 20px; border-radius: 12px; min-width: 220px;
-        color: #000000 !important;
-      }
-
-      .map-control h6 {
-        color: #000000 !important; font-weight: 800; text-transform: uppercase; letter-spacing: 0.5px; font-size: 12px;
-        border-bottom: 2px solid #eee; padding-bottom: 10px; margin-bottom: 15px;
-      }
-      
-      .form-check-label { color: #333 !important; font-weight: 600; font-size: 14px; }
-      .form-check { margin-bottom: 10px; }
+        .btn-data {
+            display: block; margin-top: 15px; background-color: #020b16; color: white;
+            text-align: center; padding: 10px; border-radius: 6px; text-decoration: none;
+            font-size: 12px; font-weight: 700; transition: 0.2s;
+        }
+        .btn-data:hover { background-color: #3b82f6; }
+        
+        hr { border: 0; border-top: 1px solid #f1f5f9; margin: 10px 0; }
     </style>
-  </head>
+</head>
+<body>
 
-  <body>
-    <nav class="top-navbar navbar navbar-expand-lg px-4">
-      <a class="navbar-brand d-flex align-items-center" href="../index.html">
-        <span class="brand-terra">TERRA</span>
-        <span class="brand-flow ms-1">FLOW</span>
-      </a>
-      
-      <button class="navbar-toggler navbar-dark" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ms-auto align-items-center">
-          <li class="nav-item"><a class="nav-link" href="../index.html">BERANDA</a></li>
-          
-          <li class="nav-item"><a class="nav-link" href="tabelGenangan.html">DATA GENANGAN</a></li>
-          
-          <li class="nav-item"><a class="nav-link active" href="#">PETA RISIKO</a></li>
-        </ul>
-      </div>
+    <nav class="navbar">
+        <a href="../index.html" class="brand-terra">TERRA<span class="brand-flow">FLOW</span></a>
+        <div class="nav-links">
+            <a href="../index.html" class="nav-link">BERANDA</a>
+            <a href="tabelGenangan.html" class="nav-link">DATA GENANGAN</a>
+            <a href="#" class="nav-link active">PETA RISIKO</a>
+        </div>
     </nav>
 
-    <section class="map-wrapper">
-      
-      <div class="map-control">
-        <h6>Filter Data</h6>
+    <div class="filter-card">
+        <div class="filter-title">Layer & Filter</div>
         
         <div class="form-check">
-          <input class="form-check-input" type="checkbox" id="waterLayer" checked>
-          <label class="form-check-label" for="waterLayer">Wilayah (Polygon)</label>
+            <input class="form-check-input" type="checkbox" id="checkPolygon" checked>
+            <label class="form-check-label" for="checkPolygon">Wilayah (Polygon)</label>
+        </div>
+        
+        <hr>
+
+        <div style="font-size: 11px; color: #64748b; font-weight: 700; margin-bottom: 8px; text-transform: uppercase;">Jenis Permukaan</div>
+        
+        <div class="form-check">
+            <input class="form-check-input" type="checkbox" id="checkAspal" checked>
+            <label class="form-check-label" style="flex-grow:1;" for="checkAspal">Jalan Aspal</label>
+            <span class="badge-count bg-aspal">Titik</span>
         </div>
 
         <div class="form-check">
-          <input class="form-check-input" type="checkbox" id="toxicLayer" checked>
-          <label class="form-check-label" for="toxicLayer">Titik Genangan</label>
+            <input class="form-check-input" type="checkbox" id="checkBeton" checked>
+            <label class="form-check-label" style="flex-grow:1;" for="checkBeton">Jalan Beton</label>
+            <span class="badge-count bg-beton">Titik</span>
         </div>
+
+        <hr>
 
         <div class="form-check">
-          <input class="form-check-input" type="checkbox" id="satelliteLayer">
-          <label class="form-check-label" for="satelliteLayer">Mode Satelit</label>
+            <input class="form-check-input" type="checkbox" id="checkSatelit">
+            <label class="form-check-label" for="checkSatelit">Mode Satelit</label>
         </div>
-      </div>
 
-      <div id="map"></div>
+        <a href="tabelGenangan.html" class="btn-data">LIHAT TABEL DATA →</a>
+    </div>
 
-      <div id="popup" class="ol-popup">
-        <a href="#" id="popup-closer" class="ol-popup-closer"></a>
-        <div id="popup-content"></div>
-      </div>
+    <div id="map"></div>
 
-    </section>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    
+    <script>
+        // 1. Inisialisasi Peta
+        var map = L.map('map').setView([0.525, 101.45], 13);
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script type="module" src="../main.js"></script>
-  </body>
+        // 2. Layer Dasar (Basemap)
+        var streetLayer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '© OpenStreetMap'
+        }).addTo(map);
+
+        var satelitLayer = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
+            attribution: 'Tiles © Esri'
+        });
+
+        // 3. Layer Group (Wadah untuk Polygon, Aspal, dan Beton)
+        var polygonLayer = L.layerGroup().addTo(map);
+        var aspalLayer   = L.layerGroup().addTo(map);
+        var betonLayer   = L.layerGroup().addTo(map);
+
+        // ============================================================
+        // A. FETCH POLYGON RIAU (Biar Gak Kotak)
+        // ============================================================
+        fetch('../data/polygon_riau.json')
+            .then(res => res.json())
+            .then(data => {
+                var geoJsonLayer = L.geoJSON(data, {
+                    style: {
+                        color: "#3b82f6",
+                        weight: 2,
+                        opacity: 1,
+                        fillColor: "#3b82f6",
+                        fillOpacity: 0.1
+                    }
+                });
+                polygonLayer.addLayer(geoJsonLayer);
+            })
+            .catch(err => console.error("Gagal load polygon:", err));
+
+        // ============================================================
+        // B. DATA FULL 96 TITIK
+        // ============================================================
+        var dataBanjir = [
+            { "ID": 1, "Nama": "Jalan Jenderal Sudirman (depan Masjid Al-Mujahidin)", "Permukaan": "Aspal", "Masalah": "Drainase dangkal dan tersumbat, genangan saat hujan deras.", "Lat": 0.533, "Long": 101.45 },
+            { "ID": 2, "Nama": "Jalan Soekarno-Hatta (simpang Tabek Gadang)", "Permukaan": "Aspal", "Masalah": "Parit tidak aktif, air hujan meluap ke jalan.", "Lat": 0.5245, "Long": 101.3951 },
+            { "ID": 3, "Nama": "Jalan HR Soebrantas (Pasar Pagi Arengka)", "Permukaan": "Aspal", "Masalah": "Drainase tersumbat sampah & kabel, genangan hingga 30 cm.", "Lat": 0.4812, "Long": 101.3926 },
+            { "ID": 4, "Nama": "Jalan Paus, Tangkerang Barat", "Permukaan": "Aspal", "Masalah": "Parit sempit dan dangkal, air tidak tertampung.", "Lat": 0.5091, "Long": 101.4607 },
+            { "ID": 5, "Nama": "Jalan Kuantan Raya", "Permukaan": "Aspal", "Masalah": "Parit tertutup bangunan, sering tergenang.", "Lat": 0.5129, "Long": 101.4493 },
+            { "ID": 6, "Nama": "Jalan Taskurun (dekat RS Santa Maria)", "Permukaan": "Aspal", "Masalah": "Drainase tidak berfungsi baik, genangan 10–20 cm.", "Lat": 0.5164, "Long": 101.4548 },
+            { "ID": 7, "Nama": "Jalan Riau (Simpang Empat Sukaramai Trade Center)", "Permukaan": "Aspal", "Masalah": "Drainase tertutup & kapasitas kecil, genangan rutin.", "Lat": 0.5147, "Long": 101.4562 },
+            { "ID": 8, "Nama": "Jalan Melur, Sukajadi", "Permukaan": "Aspal", "Masalah": "Drainase kecil dan tertutup sedimen.", "Lat": 0.5175, "Long": 101.4379 },
+            { "ID": 9, "Nama": "Jalan Rajawali Sakti, Panam", "Permukaan": "Aspal", "Masalah": "Drainase minim dan saluran tersumbat sampah.", "Lat": 0.4805, "Long": 101.3993 },
+            { "ID": 10, "Nama": "Jalan Garuda Sakti KM 3", "Permukaan": "Aspal", "Masalah": "Saluran tidak tersambung, air tergenang lama.", "Lat": 0.4743, "Long": 101.3841 },
+            { "ID": 11, "Nama": "Jalan Kaharuddin Nasution (Simpang Tiga Bandara)", "Permukaan": "Aspal", "Masalah": "Saluran air dangkal, sering banjir lokal.", "Lat": 0.4607, "Long": 101.4518 },
+            { "ID": 12, "Nama": "Jalan Parit Indah", "Permukaan": "Aspal", "Masalah": "Genangan karena sistem parit tidak lancar.", "Lat": 0.5099, "Long": 101.471 },
+            { "ID": 13, "Nama": "Jalan Delima, Tampan", "Permukaan": "Aspal", "Masalah": "Parit sempit, curah hujan tinggi sebabkan genangan.", "Lat": 0.4752, "Long": 101.4048 },
+            { "ID": 14, "Nama": "Jalan Suka Karya", "Permukaan": "Aspal", "Masalah": "Tidak ada saluran samping jalan, air tertahan.", "Lat": 0.4789, "Long": 101.3929 },
+            { "ID": 15, "Nama": "Jalan Cempedak, Rumbai", "Permukaan": "Aspal", "Masalah": "Drainase tidak berfungsi, genangan saat hujan lebat.", "Lat": 0.5481, "Long": 101.4461 },
+            { "ID": 16, "Nama": "Jembatan Siak V", "Permukaan": "Aspal", "Masalah": "Tersumbat sebagian, aliran lambat saat hujan tinggi.", "Lat": 0.53395, "Long": 101.4316 },
+            { "ID": 17, "Nama": "Kelurahan Meranti Pandak (Rumbai)", "Permukaan": "Aspal", "Masalah": "Drainase alami tersumbat sedimen.", "Lat": 0.5735, "Long": 101.4324 },
+            { "ID": 18, "Nama": "Kelurahan Sri Meranti (Rumbai)", "Permukaan": "Aspal", "Masalah": "Permukiman tergenang 50–100 cm akibat luapan Sungai Siak.", "Lat": 0.5842, "Long": 101.4208 },
+            { "ID": 19, "Nama": "Jalan Paus Ujung (Rumbai)", "Permukaan": "Aspal", "Masalah": "Parit meluap ke badan jalan karena saluran tertutup.", "Lat": 0.5569, "Long": 101.4402 },
+            { "ID": 20, "Nama": "Jalan Sudirman Ujung", "Permukaan": "Aspal", "Masalah": "Genangan hingga 40 cm; jalan sempat ditutup.", "Lat": 0.5524, "Long": 101.4255 },
+            { "ID": 21, "Nama": "Jalan Nelayan Ujung (tepi Sungai Siak)", "Permukaan": "Aspal", "Masalah": "Area rendah dekat sungai; genangan saat pasang.", "Lat": 0.5787, "Long": 101.4172 },
+            { "ID": 22, "Nama": "Perumahan Griya Permata Rumbai", "Permukaan": "Aspal", "Masalah": "Kompleks perumahan langganan genangan.", "Lat": 0.5674, "Long": 101.4355 },
+            { "ID": 23, "Nama": "Perumahan Bukit Indah Tanjung Rhu", "Permukaan": "Aspal", "Masalah": "Area perumahan padat; genangan saat hujan 30–40 cm.", "Lat": 0.5415, "Long": 101.4725 },
+            { "ID": 24, "Nama": "Jalan Soekarno-Hatta (Depan Gereja)", "Permukaan": "Aspal", "Masalah": "Jalan bergelombang dan saluran air tersumbat.", "Lat": 0.5188, "Long": 101.4198 },
+            { "ID": 25, "Nama": "Jl. Diponegoro No.55 (Man 2 Pekanbaru)", "Permukaan": "Aspal", "Masalah": "Drainase tidak berfungsi baik, tersumbat sampah.", "Lat": 0.51103, "Long": 101.4521 },
+            { "ID": 26, "Nama": "Jl. Diponegoro 49-53 (Persada Bunda)", "Permukaan": "Aspal", "Masalah": "Drainase tidak berfungsi baik, tersumbat sampah.", "Lat": 0.51186, "Long": 101.45209 },
+            { "ID": 27, "Nama": "Jl. Diponegoro No.34 (Arya Duta Hotel)", "Permukaan": "Aspal", "Masalah": "Parit sempit dan dangkal, air tidak tertampung.", "Lat": 0.51537, "Long": 101.4521 },
+            { "ID": 28, "Nama": "Jl. Wr. Supratman Ujung, Suka Maju (1)", "Permukaan": "Aspal", "Masalah": "Parit sempit dan tersumbat dengan sampah.", "Lat": 0.5142, "Long": 101.4568 },
+            { "ID": 29, "Nama": "Jl. Wr. Supratman Ujung, Suka Maju (2)", "Permukaan": "Aspal", "Masalah": "Parit sempit dan tersumbat dengan sampah.", "Lat": 0.5156, "Long": 101.4568 },
+            { "ID": 30, "Nama": "Jl. MH Thamrin, Suka Maju", "Permukaan": "Aspal", "Masalah": "Drainase tidak baik dan tersumbat dengan sampah.", "Lat": 0.516009, "Long": 101.4571 },
+            { "ID": 31, "Nama": "Jl. Beringin 33-37, Suka Maju", "Permukaan": "Aspal", "Masalah": "Parit tersumbat dengan sampah dan rumput.", "Lat": 0.5169, "Long": 101.4607 },
+            { "ID": 32, "Nama": "Jl. Kaharudin Nasution, Perhentian Marpoyan", "Permukaan": "Aspal", "Masalah": "Parit tersumbat dengan sampah dan rumput.", "Lat": 0.4627, "Long": 101.4529 },
+            { "ID": 33, "Nama": "Jl. Kaharuddin Nasution 1, Simpang Tiga (A)", "Permukaan": "Aspal", "Masalah": "Parit tersumbat dengan sampah dan rumput.", "Lat": 0.4607, "Long": 101.45204 },
+            { "ID": 34, "Nama": "Jl. Kaharuddin Nasution 1, Simpang Tiga (B)", "Permukaan": "Aspal", "Masalah": "Parit tersumbat dengan sampah dan rumput.", "Lat": 0.4607, "Long": 101.4519 },
+            { "ID": 35, "Nama": "Gang AMD RT 4 Tanjung Rhu", "Permukaan": "Aspal", "Masalah": "Tergenang pasca hujan; tidak ada saluran pembuangan.", "Lat": 0.544, "Long": 101.471 },
+            { "ID": 36, "Nama": "Jalan Sumber Sari (Tanjung Rhu)", "Permukaan": "Aspal", "Masalah": "Genangan 40–70 cm saat Sungai Siak meluap.", "Lat": 0.542, "Long": 101.468 },
+            { "ID": 37, "Nama": "Jalan Cempedak Tanjung Rhu", "Permukaan": "Aspal", "Masalah": "Parit kecil & dangkal, genangan > 20 cm.", "Lat": 0.5426, "Long": 101.4713 },
+            { "ID": 38, "Nama": "Jalan Sri Purna Tanjung Rhu", "Permukaan": "Aspal", "Masalah": "Drainase tersumbat sampah, genangan tinggi.", "Lat": 0.5461, "Long": 101.4701 },
+            { "ID": 39, "Nama": "Jalan Ahmad Yani Ujung Tanjung Rhu", "Permukaan": "Aspal", "Masalah": "Titik rawan genangan; parit dangkal.", "Lat": 0.5405, "Long": 101.4662 },
+            { "ID": 40, "Nama": "Perumahan Bukit Indah Tanjung Rhu (2)", "Permukaan": "Aspal", "Masalah": "Area perumahan padat, genangan 30–40 cm.", "Lat": 0.5415, "Long": 101.4725 },
+            { "ID": 41, "Nama": "Jalan MH Thamrin (Pusat Kota Pekanbaru)", "Permukaan": "Aspal", "Masalah": "Drainase relatif baik namun sempit, potensi tersumbat sedimen.", "Lat": 0.5352, "Long": 101.4473 },
+            { "ID": 42, "Nama": "Simpang Tiga Thamrin – Juanda", "Permukaan": "Aspal", "Masalah": "Parit kecil dan dangkal, genangan saat hujan >30 menit.", "Lat": 0.5358, "Long": 101.4482 },
+            { "ID": 43, "Nama": "Jalan Bukit Barisan – Depan Ruko", "Permukaan": "Aspal", "Masalah": "Tidak ada parit di sisi jalan, genangan menyebar.", "Lat": 0.5325, "Long": 101.4745 },
+            { "ID": 44, "Nama": "Jalan Bukit Barisan – Dekat Masjid Al-Ikhlas", "Permukaan": "Aspal", "Masalah": "Saluran air kecil & dangkal, aliran lambat.", "Lat": 0.532, "Long": 101.4728 },
+            { "ID": 45, "Nama": "Jalan Bukit Barisan – Cekungan 700m", "Permukaan": "Aspal", "Masalah": "Lokasi cekungan alami, genangan 20–35 cm.", "Lat": 0.5318, "Long": 101.4715 },
+            { "ID": 46, "Nama": "Jalan Bukit Barisan – Perumahan Indah", "Permukaan": "Aspal", "Masalah": "Drainase tersumbat sedimen, genangan 1–2 jam.", "Lat": 0.5332, "Long": 101.4758 },
+            { "ID": 47, "Nama": "Jalan Bukit Barisan – Simpang Harapan Raya", "Permukaan": "Aspal", "Masalah": "Parit dangkal, air sering meluap ke jalan.", "Lat": 0.5337, "Long": 101.4769 },
+            { "ID": 48, "Nama": "Jalan Bukit Barisan – Depan SDN 165", "Permukaan": "Aspal", "Masalah": "Parit sempit, air sering naik ke jalan.", "Lat": 0.5319, "Long": 101.4733 },
+            { "ID": 49, "Nama": "Jalan Bukit Barisan – Belakang Perkantoran", "Permukaan": "Aspal", "Masalah": "Cekungan rendah, air tertahan 3–4 jam.", "Lat": 0.5226, "Long": 101.4628 },
+            { "ID": 50, "Nama": "Jalan Bukit Barisan – Gang Sederhana", "Permukaan": "Aspal", "Masalah": "Drainase tersumbat sampah rumah tangga.", "Lat": 0.5328, "Long": 101.4761 },
+            { "ID": 51, "Nama": "Jalan Bukit Barisan – Depan Apotek Mitra", "Permukaan": "Aspal", "Masalah": "Genangan 15–20 cm, parit dangkal.", "Lat": 0.5323, "Long": 101.4739 },
+            { "ID": 52, "Nama": "Jalan Bukit Barisan – Arah ke Parit Indah", "Permukaan": "Aspal", "Masalah": "Parit curam dan penuh sampah, aliran tersumbat.", "Lat": 0.5339, "Long": 101.4779 },
+            { "ID": 53, "Nama": "Jalan Bambukuning – Ruas Tengah", "Permukaan": "Aspal", "Masalah": "Drainase sempit dan tidak terhubung.", "Lat": 0.535, "Long": 101.455 },
+            { "ID": 54, "Nama": "Jalan Bambukuning Ujung", "Permukaan": "Aspal", "Masalah": "Parit dangkal dan tertutup sedimen.", "Lat": 0.5356, "Long": 101.457 },
+            { "ID": 55, "Nama": "Jalan Bambukuning – Dekat Perumahan", "Permukaan": "Aspal", "Masalah": "Daerah cekungan, air mengumpul di tengah jalan.", "Lat": 0.5343, "Long": 101.4538 },
+            { "ID": 56, "Nama": "Gang Bambukuning II", "Permukaan": "Aspal", "Masalah": "Tidak ada saluran samping jalan; genangan 10–15 cm.", "Lat": 0.5352, "Long": 101.4544 },
+            { "ID": 57, "Nama": "Jalan Bambukuning – Akses Sisingamangaraja", "Permukaan": "Aspal", "Masalah": "Drainase terputus; air mengalir lambat.", "Lat": 0.5361, "Long": 101.4562 },
+            { "ID": 58, "Nama": "Jalan Bambukuning – Depan Mushola Al-Ikhlas", "Permukaan": "Aspal", "Masalah": "Parit kecil & dangkal, air naik ke jalan.", "Lat": 0.5348, "Long": 101.4558 },
+            { "ID": 59, "Nama": "Jalan Bambukuning – Gang Melati", "Permukaan": "Beton", "Masalah": "Tidak ada drainase samping; genangan 5–10 cm.", "Lat": 0.5354, "Long": 101.4549 },
+            { "ID": 60, "Nama": "Jalan Bambukuning – Titik Rendah Dekat Jembatan Kecil", "Permukaan": "Aspal", "Masalah": "Daerah cekungan, air menggenang cepat saat hujan.", "Lat": 0.5337, "Long": 101.4526 },
+            { "ID": 61, "Nama": "Jalan Kuantan Raya – Depan Bengkel Motor", "Permukaan": "Aspal", "Masalah": "Air bertahan lama karena tidak ada jalur keluar ke parit utama.", "Lat": 0.5131, "Long": 101.4489 },
+            { "ID": 62, "Nama": "Jalan Kuantan 7", "Permukaan": "Aspal", "Masalah": "Drainase kecil & tidak terhubung ke saluran besar.", "Lat": 0.5126, "Long": 101.4487 },
+            { "ID": 63, "Nama": "Jalan Kuantan Raya – Titik Rendah Secara Topografi", "Permukaan": "Aspal", "Masalah": "Titik cekungan alami, genangan 20–30 cm.", "Lat": 0.512, "Long": 101.4491 },
+            { "ID": 64, "Nama": "Jalan Kuantan Raya – Dekat Gedung Pertokoan", "Permukaan": "Aspal", "Masalah": "Drainase dangkal, air sering melintasi jalan.", "Lat": 0.5133, "Long": 101.4512 },
+            { "ID": 65, "Nama": "Jalan Kuantan Raya – Belakang Sekolah", "Permukaan": "Aspal", "Masalah": "Parit tersumbat sampah, genangan bertahan lama.", "Lat": 0.5122, "Long": 101.4508 },
+            { "ID": 66, "Nama": "Jalan Kuantan Raya – Titik Arah Sungai", "Permukaan": "Aspal", "Masalah": "Aliran air mengarah ke satu sisi genangan 15 cm mudah terjadi.", "Lat": 0.5135, "Long": 101.4485 },
+            { "ID": 67, "Nama": "Jalan Kuantan Raya – Dekat Rumah Makan Kuantan", "Permukaan": "Aspal", "Masalah": "Parit tersumbat, aliran air melambat saat hujan.", "Lat": 0.5136, "Long": 101.4499 },
+            { "ID": 68, "Nama": "Jalan Kuantan Raya – Depan Kios Warga", "Permukaan": "Aspal", "Masalah": "Genangan 10–15 cm saat hujan deras.", "Lat": 0.5125, "Long": 101.4496 },
+            { "ID": 69, "Nama": "Jalan Kuantan Raya – Gang Flamboyan", "Permukaan": "Aspal", "Masalah": "Drainase kecil, air sulit mengalir.", "Lat": 0.5127, "Long": 101.451 },
+            { "ID": 70, "Nama": "Jalan Gobah – Dekat Gang Gobah 1", "Permukaan": "Aspal", "Masalah": "Drainase sempit, mudah tersumbat sampah harian.", "Lat": 0.5272, "Long": 101.4524 },
+            { "ID": 71, "Nama": "Jalan Hangtuah – Masjid Al Furqan", "Permukaan": "Aspal", "Masalah": "Sedimentasi tebal di drainase,genangan saat hujan.", "Lat": 0.5338, "Long": 101.443 },
+            { "ID": 72, "Nama": "Jalan Obor – Dekat Perumahan Warga", "Permukaan": "Aspal", "Masalah": "Drainase dangkal & tersumbat sedimen; air mengalir sangat lambat.", "Lat": 0.5058, "Long": 101.4519 },
+            { "ID": 73, "Nama": "RW 11, Kelurahan Mentangor (Kulim)", "Permukaan": "Aspal", "Masalah": "Genangan jalan dilaporkan Camat saat inspeksi banjir.", "Lat": 0.506, "Long": 101.453 },
+            { "ID": 74, "Nama": "Perumahan RW 14, Kelurahan Pebatuan (Kulim)", "Permukaan": "Aspal", "Masalah": "Titik banjir sesaat karena drainase di kawasan pedesaan tidak maksimal.", "Lat": 0.502, "Long": 101.4505 },
+            { "ID": 75, "Nama": "Jalan Teratai – Dekat Pasar Bawah", "Permukaan": "Aspal", "Masalah": "Drainase padat sampah, genangan sering terbentuk.", "Lat": 0.5281, "Long": 101.4488 },
+            { "ID": 76, "Nama": "Jalan Suka Karya – Panam", "Permukaan": "Aspal", "Masalah": "Parit kecil, genangan muncul saat hujan 30 menit.", "Lat": 0.4838, "Long": 101.3793 },
+            { "ID": 77, "Nama": "Jalan Rajawali – Sukajadi", "Permukaan": "Aspal", "Masalah": "Aliran air lambat, drainase tidak tersambung ke saluran besar.", "Lat": 0.5209, "Long": 101.4355 },
+            { "ID": 78, "Nama": "Gang Kuala Lumpur – Depan Pasar Kodim", "Permukaan": "Beton", "Masalah": "Daerah cekungan kecil, genangan bertahan lama.", "Lat": 0.5241, "Long": 101.4583 },
+            { "ID": 79, "Nama": "Jalan Kaharuddin Nasution – Dekat Jembatan", "Permukaan": "Aspal", "Masalah": "Direncanakan dibuat box culvert karena parit tidak mampu menampung debit hujan.", "Lat": 0.5059, "Long": 101.4559 },
+            { "ID": 80, "Nama": "Jalan Karyawan – Labuh Baru", "Permukaan": "Beton", "Masalah": "Tidak ada parit, air berkumpul di cekungan.", "Lat": 0.5118, "Long": 101.4233 },
+            { "ID": 81, "Nama": "Jalan Melur – Dekat Pasar Melur", "Permukaan": "Aspal", "Masalah": "Drainase dangkal & tersumbat, genangan 10–20 cm.", "Lat": 0.5241, "Long": 101.4509 },
+            { "ID": 82, "Nama": "Jalan Garuda Sakti KM 3", "Permukaan": "Aspal", "Masalah": "Parit terlalu kecil, aliran terhambat.", "Lat": 0.4777, "Long": 101.3544 },
+            { "ID": 83, "Nama": "Jalan Lobak – Arengka", "Permukaan": "Aspal", "Masalah": "Drainase sempit, mudah meluap.", "Lat": 0.5080, "Long": 101.444 },
+            { "ID": 84, "Nama": "Jalan Sikumbang – Kota Tengah", "Permukaan": "Beton", "Masalah": "Tidak ada drainase memadai.", "Lat": 0.5197, "Long": 101.4522 },
+            { "ID": 85, "Nama": "Jalan Kutilang – Sukajadi", "Permukaan": "Aspal", "Masalah": "Aliran air lambat, daerah cekungan.", "Lat": 0.5205, "Long": 101.4388 },
+            { "ID": 86, "Nama": "Jalan Seroja – Arengka 1", "Permukaan": "Aspal", "Masalah": "Drainase tersumbat sampah pasar.", "Lat": 0.4932, "Long": 101.4113 },
+            { "ID": 87, "Nama": "Jalan Beringin – Payung Sekaki", "Permukaan": "Aspal", "Masalah": "Saluran tersumbat dan kotor.", "Lat": 0.5087, "Long": 101.4209 },
+            { "ID": 88, "Nama": "Jalan Tanjung Datuk – Dekat Pelabuhan", "Permukaan": "Aspal", "Masalah": "Luapan sungai + parit kecil.", "Lat": 0.5377, "Long": 101.4604 },
+            { "ID": 89, "Nama": "Jalan Karya Indah – Bukit Raya", "Permukaan": "Aspal", "Masalah": "Drainase tidak terhubung ke saluran besar.", "Lat": 0.4991, "Long": 101.4452 },
+            { "ID": 90, "Nama": "Jalan Kereta Api – Dekat Gudang", "Permukaan": "Aspal", "Masalah": "Parit penuh lumpur, air tidak mengalir.", "Lat": 0.5258, "Long": 101.4639 },
+            { "ID": 91, "Nama": "Jalan Harapan – Bukit Raya", "Permukaan": "Aspal", "Masalah": "Drainase terputus di beberapa titik, genangan muncul cepat.", "Lat": 0.5017, "Long": 101.4458 },
+            { "ID": 92, "Nama": "Jalan Balam – Sukajadi", "Permukaan": "Aspal", "Masalah": "Parit kecil & tidak tersambung.", "Lat": 0.5199, "Long": 101.4379 },
+            { "ID": 93, "Nama": "Jalan Rambutan – Tangkerang", "Permukaan": "Aspal", "Masalah": "Parit tersumbat daun & sampah.", "Lat": 0.5233, "Long": 101.4695 },
+            { "ID": 94, "Nama": "Jalan HOS Cokroaminoto – Dekat Pasar", "Permukaan": "Aspal", "Masalah": "Sedimentasi berat, aliran lambat.", "Lat": 0.5248, "Long": 101.4561 },
+            { "ID": 95, "Nama": "Jalan Kakap – Kampung Tengah", "Permukaan": "Beton", "Masalah": "Genangan lokal karena cekungan.", "Lat": 0.5201, "Long": 101.4486 },
+            { "ID": 96, "Nama": "Jalan Durian – Sukajadi", "Permukaan": "Aspal", "Masalah": "Drainase sempit dan tidak menyatu ke saluran besar.", "Lat": 0.5201, "Long": 101.4402 }
+        ];
+
+        // ============================================================
+        // C. LOGIKA RENDER & FILTER
+        // ============================================================
+        
+        var floodIcon = L.icon({
+            iconUrl: '../icon/flood.png', // Pastikan file icon ada
+            iconSize: [32, 32],
+            iconAnchor: [16, 32],
+            popupAnchor: [0, -32]
+        });
+
+        // Loop Data
+        dataBanjir.forEach(function(titik) {
+            var marker = L.marker([titik.Lat, titik.Long], {icon: floodIcon});
+            
+            // Isi Popup
+            marker.bindPopup(`
+                <div style="font-family: 'Inter', sans-serif;">
+                    <b style="color:#dc2626">${titik.Nama}</b><hr style="margin:5px 0">
+                    <span style="font-size:12px; display:block; margin-bottom:5px;">${titik.Masalah}</span>
+                    <span style="background:${titik.Permukaan.includes('Aspal') ? '#22c55e' : '#64748b'}; color:white; padding:2px 6px; border-radius:4px; font-size:10px;">${titik.Permukaan}</span>
+                </div>
+            `);
+
+            // Pisahkan layer Aspal & Beton
+            if (titik.Permukaan.includes("Aspal")) {
+                aspalLayer.addLayer(marker);
+            } else if (titik.Permukaan.includes("Beton")) {
+                betonLayer.addLayer(marker);
+            }
+        });
+
+        // ============================================================
+        // D. EVENT LISTENERS CHECKBOX
+        // ============================================================
+        
+        document.getElementById('checkPolygon').addEventListener('change', function(e) {
+            e.target.checked ? map.addLayer(polygonLayer) : map.removeLayer(polygonLayer);
+        });
+
+        document.getElementById('checkAspal').addEventListener('change', function(e) {
+            e.target.checked ? map.addLayer(aspalLayer) : map.removeLayer(aspalLayer);
+        });
+
+        document.getElementById('checkBeton').addEventListener('change', function(e) {
+            e.target.checked ? map.addLayer(betonLayer) : map.removeLayer(betonLayer);
+        });
+
+        document.getElementById('checkSatelit').addEventListener('change', function(e) {
+            if(e.target.checked) { 
+                map.addLayer(satelitLayer);
+                map.removeLayer(streetLayer);
+            } else { 
+                map.addLayer(streetLayer);
+                map.removeLayer(satelitLayer);
+            }
+        });
+
+    </script>
+</body>
 </html>

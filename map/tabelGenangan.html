@@ -3,275 +3,276 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Data Drainase Pekanbaru (Full 1-100) - Terraflow</title>
+    <title>TerraFlow | Database Genangan</title>
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;900&display=swap" rel="stylesheet">
+
     <style>
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #0a192f;
+            background-color: #0b1120; /* Dark Blue Background */
+            font-family: 'Inter', sans-serif;
             color: #ffffff;
-            margin: 0;
-            padding: 0;
         }
 
-        /* Header */
-        .terra-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px 40px;
-            border-bottom: 1px solid #1e2a45;
-            background-color: #0a192f;
-            position: sticky;
-            top: 0;
-            z-index: 100;
+        /* NAVBAR */
+        .navbar {
+            background-color: #020b16 !important;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            height: 70px;
         }
-        .terra-logo {
-            font-size: 1.5rem;
-            font-weight: bold;
-            letter-spacing: 1px;
-        }
-        .blue-text { color: #4d90fe; }
+        .brand-terra { color: #ffffff; font-weight: 900; letter-spacing: 1px; font-size: 24px; }
+        .brand-flow { color: #3b82f6; font-weight: 900; letter-spacing: 1px; font-size: 24px; }
         
-        /* Container */
-        .content-container { padding: 40px; }
-        .back-button {
+        /* TOMBOL KEMBALI */
+        .btn-back {
             background-color: #ffffff;
-            color: #0a192f;
+            color: #020b16;
+            font-weight: 700;
             border: none;
-            padding: 8px 16px;
-            font-weight: bold;
-            border-radius: 4px;
+            padding: 10px 20px;
+            border-radius: 6px;
             text-decoration: none;
-            display: inline-block;
-            margin-bottom: 20px;
-            font-size: 0.9rem;
+            transition: all 0.2s;
         }
-        .back-button:hover { background-color: #ccc; }
+        .btn-back:hover {
+            background-color: #e2e8f0;
+            color: #000;
+            transform: translateY(-1px);
+        }
 
-        h1 { text-align: center; margin-bottom: 10px; }
-        p.subtitle { text-align: center; color: #8892b0; margin-bottom: 30px; }
+        /* HEADER HALAMAN */
+        .page-header {
+            text-align: center;
+            padding: 40px 20px;
+        }
+        .page-title {
+            font-weight: 800;
+            font-size: 32px;
+            margin-bottom: 10px;
+        }
+        .page-subtitle {
+            color: #94a3b8;
+            font-size: 16px;
+        }
 
-        /* Table Styling */
+        /* TABEL STYLE */
         .table-container {
-            overflow-x: auto;
-            height: 70vh; /* Tinggi tabel fix agar bisa discroll */
-            overflow-y: auto;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
-            background-color: #172a45;
-            border-radius: 10px;
-            border: 1px solid #233554;
+            padding: 0 40px 60px 40px;
         }
-
-        table {
+        .custom-table {
             width: 100%;
-            border-collapse: collapse;
-            min-width: 900px;
+            border-collapse: separate;
+            border-spacing: 0;
+            border-radius: 12px;
+            overflow: hidden;
+            background-color: #1e293b;
         }
-
-        thead tr {
-            background-color: #4d90fe;
-            color: #ffffff;
-            position: sticky;
-            top: 0;
-            z-index: 10;
+        .custom-table thead {
+            background-color: #3b82f6; /* Warna Biru Header Tabel */
+            color: white;
         }
-
-        th, td {
-            padding: 12px 15px;
-            border-bottom: 1px solid #1e2a45;
+        .custom-table th {
+            padding: 18px;
+            font-weight: 700;
+            font-size: 14px;
             text-align: left;
-            font-size: 0.9rem;
-            vertical-align: top;
+            border: none;
         }
-
-        tbody tr:nth-of-type(even) { background-color: #1c3050; }
-        tbody tr:hover { background-color: #25406b; transition: 0.2s; }
-
-        /* Status Badges */
-        .badge {
-            padding: 4px 8px;
+        .custom-table td {
+            padding: 16px 18px;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+            font-size: 14px;
+            color: #e2e8f0;
+            vertical-align: middle;
+        }
+        .custom-table tr:hover td {
+            background-color: #334155;
+        }
+        
+        /* Badge Status */
+        .badge-aspal {
+            background-color: #22c55e;
+            color: #fff;
+            padding: 4px 10px;
             border-radius: 4px;
-            font-size: 0.8rem;
-            font-weight: bold;
+            font-weight: 700;
+            font-size: 11px;
+            text-transform: uppercase;
         }
-        .badge-aspal { background-color: #2e7d32; color: white; }
-        .badge-beton { background-color: #f57c00; color: white; }
-        .badge-tanah { background-color: #795548; color: white; }
-
-        /* Scrollbar Custom */
-        ::-webkit-scrollbar { width: 8px; height: 8px; }
-        ::-webkit-scrollbar-track { background: #0a192f; }
-        ::-webkit-scrollbar-thumb { background: #4d90fe; border-radius: 4px; }
-        ::-webkit-scrollbar-thumb:hover { background: #357abd; }
+        .badge-beton {
+            background-color: #64748b;
+            color: #fff;
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-weight: 700;
+            font-size: 11px;
+            text-transform: uppercase;
+        }
     </style>
 </head>
 <body>
 
-    <div class="terra-header">
-        <div class="terra-logo">TERRA<span class="blue-text">FLOW</span></div>
-        <div style="color: #ccd6f6; font-size: 0.9rem;">DATABASE DRAINASE KOTA</div>
-    </div>
+    <nav class="navbar px-4">
+        <a class="navbar-brand d-flex align-items-center" href="../index.html">
+            <span class="brand-terra">TERRA</span>
+            <span class="brand-flow ms-1">FLOW</span>
+        </a>
+        
+        <div class="ms-auto text-white-50 d-none d-md-block" style="font-size: 12px; letter-spacing: 1px;">
+            DATABASE DRAINASE KOTA
+        </div>
+    </nav>
 
-    <div class="content-container">
-        <a href="map.html" class="back-button">← KEMBALI KE PETA</a>
+    <div class="container-fluid">
+        <div class="mt-4 ms-4">
+            <a href="map.html" class="btn-back">← KEMBALI KE PETA</a>
+        </div>
 
-        <h1>Master Data Survei Lapangan</h1>
-        <p class="subtitle">Total Titik Lokasi Drainase & Genangan - Kota Pekanbaru</p>
+        <div class="page-header">
+            <h1 class="page-title">Master Data Survei Lapangan</h1>
+            <p class="page-subtitle">Total Titik Lokasi Drainase & Genangan - Kota Pekanbaru</p>
+        </div>
 
         <div class="table-container">
-            <table id="tabelData">
+            <table class="custom-table table-responsive">
                 <thead>
                     <tr>
-                        <th style="width: 50px; text-align: center;">ID</th>
-                        <th style="width: 250px;">Nama Lokasi</th>
-                        <th style="width: 100px;">Permukaan</th>
-                        <th>Kondisi & Masalah Drainase</th>
-                        <th style="width: 150px;">Koordinat (Lat, Long)</th>
+                        <th width="5%">ID</th>
+                        <th width="30%">Nama Lokasi</th>
+                        <th width="10%">Permukaan</th>
+                        <th width="40%">Kondisi & Masalah Drainase</th>
+                        <th width="15%" class="text-end">Koordinat (Lat, Long)</th>
                     </tr>
                 </thead>
-                <tbody></tbody>
+                <tbody id="tableBody">
+                    </tbody>
             </table>
         </div>
     </div>
 
     <script>
-        // Data Gabungan Full (User Input)
-        const geojsonData = {
-            "type": "FeatureCollection",
-            "features": [
-                { "type": "Feature", "properties": { "ID": 1, "Nama Lokasi": "Jalan Jenderal Sudirman (depan Masjid Al-Mujahidin)", "Jenis_Permukaan": "Aspal", "Kondisi_drainase": "Drainase dangkal dan tersumbat, genangan saat hujan deras." }, "geometry": { "type": "Point", "coordinates": [ 101.45, 0.533 ] } },
-                { "type": "Feature", "properties": { "ID": 2, "Nama Lokasi": "Jalan Soekarno-Hatta (simpang Tabek Gadang)", "Jenis_Permukaan": "Aspal", "Kondisi_drainase": "Parit tidak aktif, air hujan meluap ke jalan." }, "geometry": { "type": "Point", "coordinates": [ 101.3951, 0.5245 ] } },
-                { "type": "Feature", "properties": { "ID": 3, "Nama Lokasi": "Jalan HR Soebrantas (Pasar Pagi Arengka)", "Jenis_Permukaan": "Aspal", "Kondisi_drainase": "Drainase tersumbat sampah & kabel, genangan hingga 30 cm." }, "geometry": { "type": "Point", "coordinates": [ 101.3926, 0.4812 ] } },
-                { "type": "Feature", "properties": { "ID": 4, "Nama Lokasi": "Jalan Paus, Tangkerang Barat", "Jenis_Permukaan": "Aspal", "Kondisi_drainase": "Parit sempit dan dangkal, air tidak tertampung." }, "geometry": { "type": "Point", "coordinates": [ 101.4607, 0.5091 ] } },
-                { "type": "Feature", "properties": { "ID": 5, "Nama Lokasi": "Jalan Kuantan Raya", "Jenis_Permukaan": "Aspal", "Kondisi_drainase": "Parit tertutup bangunan, sering tergenang." }, "geometry": { "type": "Point", "coordinates": [ 101.4493, 0.5129 ] } },
-                { "type": "Feature", "properties": { "ID": 6, "Nama Lokasi": "Jalan Taskurun (dekat RS Santa Maria)", "Jenis_Permukaan": "Aspal", "Kondisi_drainase": "Drainase tidak berfungsi baik, genangan 10–20 cm." }, "geometry": { "type": "Point", "coordinates": [ 101.4548, 0.5164 ] } },
-                { "type": "Feature", "properties": { "ID": 7, "Nama Lokasi": "Jalan Riau (Simpang Empat Sukaramai Trade Center)", "Jenis_Permukaan": "Aspal", "Kondisi_drainase": "Drainase tertutup & kapasitas kecil, genangan rutin." }, "geometry": { "type": "Point", "coordinates": [ 101.4562, 0.5147 ] } },
-                { "type": "Feature", "properties": { "ID": 8, "Nama Lokasi": "Jalan Melur, Sukajadi", "Jenis_Permukaan": "Aspal", "Kondisi_drainase": "Drainase kecil dan tertutup sedimen." }, "geometry": { "type": "Point", "coordinates": [ 101.4379, 0.5175 ] } },
-                { "type": "Feature", "properties": { "ID": 9, "Nama Lokasi": "Jalan Rajawali Sakti, Panam", "Jenis_Permukaan": "Aspal", "Kondisi_drainase": "Drainase minim dan saluran tersumbat sampah." }, "geometry": { "type": "Point", "coordinates": [ 101.3993, 0.4805 ] } },
-                { "type": "Feature", "properties": { "ID": 10, "Nama Lokasi": "Jalan Garuda Sakti KM 3", "Jenis_Permukaan": "Aspal", "Kondisi_drainase": "Saluran tidak tersambung, air tergenang lama." }, "geometry": { "type": "Point", "coordinates": [ 101.3841, 0.4743 ] } },
-                { "type": "Feature", "properties": { "ID": 11, "Nama Lokasi": "Jalan Kaharuddin Nasution (Simpang Tiga Bandara)", "Jenis_Permukaan": "Aspal", "Kondisi_drainase": "Saluran air dangkal, sering banjir lokal." }, "geometry": { "type": "Point", "coordinates": [ 101.4518, 0.4607 ] } },
-                { "type": "Feature", "properties": { "ID": 12, "Nama Lokasi": "Jalan Parit Indah", "Jenis_Permukaan": "Aspal", "Kondisi_drainase": "Genangan karena sistem parit tidak lancar." }, "geometry": { "type": "Point", "coordinates": [ 101.471, 0.5099 ] } },
-                { "type": "Feature", "properties": { "ID": 13, "Nama Lokasi": "Jalan Delima, Tampan", "Jenis_Permukaan": "Aspal", "Kondisi_drainase": "Parit sempit, curah hujan tinggi sebabkan genangan." }, "geometry": { "type": "Point", "coordinates": [ 101.4048, 0.4752 ] } },
-                { "type": "Feature", "properties": { "ID": 14, "Nama Lokasi": "Jalan Suka Karya", "Jenis_Permukaan": "Aspal", "Kondisi_drainase": "Tidak ada saluran samping jalan, air tertahan." }, "geometry": { "type": "Point", "coordinates": [ 101.3929, 0.4789 ] } },
-                { "type": "Feature", "properties": { "ID": 15, "Nama Lokasi": "Jalan Cempedak, Rumbai", "Jenis_Permukaan": "Aspal", "Kondisi_drainase": "Drainase tidak berfungsi, genangan saat hujan lebat." }, "geometry": { "type": "Point", "coordinates": [ 101.4461, 0.5481 ] } },
-                { "type": "Feature", "properties": { "ID": 16, "Nama Lokasi": "Jembatan Siak V", "Jenis_Permukaan": "Aspal", "Kondisi_drainase": "Tersumbat sebagian, aliran lambat saat hujan tinggi." }, "geometry": { "type": "Point", "coordinates": [ 101.4316, 0.53395 ] } },
-                { "type": "Feature", "properties": { "ID": 17, "Nama Lokasi": "Kelurahan Meranti Pandak (Rumbai)", "Jenis_Permukaan": "Aspal", "Kondisi_drainase": "Drainase alami tersumbat sedimen." }, "geometry": { "type": "Point", "coordinates": [ 101.4324, 0.5735 ] } },
-                { "type": "Feature", "properties": { "ID": 18, "Nama Lokasi": "Kelurahan Sri Meranti (Rumbai)", "Jenis_Permukaan": "Aspal", "Kondisi_drainase": "Permukiman tergenang 50–100 cm akibat luapan Sungai Siak." }, "geometry": { "type": "Point", "coordinates": [ 101.4208, 0.5842 ] } },
-                { "type": "Feature", "properties": { "ID": 19, "Nama Lokasi": "Jalan Paus Ujung (Rumbai)", "Jenis_Permukaan": "Aspal", "Kondisi_drainase": "Parit meluap ke badan jalan karena saluran tertutup." }, "geometry": { "type": "Point", "coordinates": [ 101.4402, 0.5569 ] } },
-                { "type": "Feature", "properties": { "ID": 20, "Nama Lokasi": "Jalan Sudirman Ujung", "Jenis_Permukaan": "Aspal", "Kondisi_drainase": "Genangan hingga 40 cm; jalan sempat ditutup." }, "geometry": { "type": "Point", "coordinates": [ 101.4255, 0.5524 ] } },
-                { "type": "Feature", "properties": { "ID": 21, "Nama Lokasi": "Jalan Nelayan Ujung (tepi Sungai Siak)", "Jenis_Permukaan": "Aspal", "Kondisi_drainase": "Area rendah dekat sungai; genangan saat pasang." }, "geometry": { "type": "Point", "coordinates": [ 101.4172, 0.5787 ] } },
-                { "type": "Feature", "properties": { "ID": 22, "Nama Lokasi": "Perumahan Griya Permata Rumbai", "Jenis_Permukaan": "Aspal", "Kondisi_drainase": "Kompleks perumahan langganan genangan." }, "geometry": { "type": "Point", "coordinates": [ 101.4355, 0.5674 ] } },
-                { "type": "Feature", "properties": { "ID": 23, "Nama Lokasi": "Perumahan Bukit Indah Tanjung Rhu", "Jenis_Permukaan": "Aspal", "Kondisi_drainase": "Area perumahan padat; genangan saat hujan 30–40 cm." }, "geometry": { "type": "Point", "coordinates": [ 101.4725, 0.5415 ] } },
-                { "type": "Feature", "properties": { "ID": 24, "Nama Lokasi": "Jalan Soekarno-Hatta (Depan Gereja)", "Jenis_Permukaan": "Aspal", "Kondisi_drainase": "Jalan bergelombang dan saluran air tersumbat." }, "geometry": { "type": "Point", "coordinates": [ 101.4198, 0.5188 ] } },
-                { "type": "Feature", "properties": { "ID": 25, "Nama Lokasi": "Jl. Diponegoro No.55 (Man 2 Pekanbaru)", "Jenis_Permukaan": "Aspal", "Kondisi_drainase": "Drainase tidak berfungsi baik, tersumbat sampah." }, "geometry": { "type": "Point", "coordinates": [ 101.4521, 0.51103 ] } },
-                { "type": "Feature", "properties": { "ID": 26, "Nama Lokasi": "Jl. Diponegoro 49-53 (Persada Bunda)", "Jenis_Permukaan": "Aspal", "Kondisi_drainase": "Drainase tidak berfungsi baik, tersumbat sampah." }, "geometry": { "type": "Point", "coordinates": [ 101.45209, 0.51186 ] } },
-                { "type": "Feature", "properties": { "ID": 27, "Nama Lokasi": "Jl. Diponegoro No.34 (Arya Duta Hotel)", "Jenis_Permukaan": "Aspal", "Kondisi_drainase": "Parit sempit dan dangkal, air tidak tertampung." }, "geometry": { "type": "Point", "coordinates": [ 101.4521, 0.51537 ] } },
-                { "type": "Feature", "properties": { "ID": 28, "Nama Lokasi": "Jl. Wr. Supratman Ujung, Suka Maju (1)", "Jenis_Permukaan": "Aspal", "Kondisi_drainase": "Parit sempit dan tersumbat dengan sampah." }, "geometry": { "type": "Point", "coordinates": [ 101.4568, 0.5142 ] } },
-                { "type": "Feature", "properties": { "ID": 29, "Nama Lokasi": "Jl. Wr. Supratman Ujung, Suka Maju (2)", "Jenis_Permukaan": "Aspal", "Kondisi_drainase": "Parit sempit dan tersumbat dengan sampah." }, "geometry": { "type": "Point", "coordinates": [ 101.4568, 0.5156 ] } },
-                { "type": "Feature", "properties": { "ID": 30, "Nama Lokasi": "Jl. MH Thamrin, Suka Maju", "Jenis_Permukaan": "Aspal", "Kondisi_drainase": "Drainase tidak baik dan tersumbat dengan sampah." }, "geometry": { "type": "Point", "coordinates": [ 101.4571, 0.516009 ] } },
-                { "type": "Feature", "properties": { "ID": 31, "Nama Lokasi": "Jl. Beringin 33-37, Suka Maju", "Jenis_Permukaan": "Aspal", "Kondisi_drainase": "Parit tersumbat dengan sampah dan rumput." }, "geometry": { "type": "Point", "coordinates": [ 101.4607, 0.5169 ] } },
-                { "type": "Feature", "properties": { "ID": 32, "Nama Lokasi": "Jl. Kaharudin Nasution, Perhentian Marpoyan", "Jenis_Permukaan": "Aspal", "Kondisi_drainase": "Parit tersumbat dengan sampah dan rumput." }, "geometry": { "type": "Point", "coordinates": [ 101.4529, 0.4627 ] } },
-                { "type": "Feature", "properties": { "ID": 33, "Nama Lokasi": "Jl. Kaharuddin Nasution 1, Simpang Tiga (A)", "Jenis_Permukaan": "Aspal", "Kondisi_drainase": "Parit tersumbat dengan sampah dan rumput." }, "geometry": { "type": "Point", "coordinates": [ 101.45204, 0.4607 ] } },
-                { "type": "Feature", "properties": { "ID": 34, "Nama Lokasi": "Jl. Kaharuddin Nasution 1, Simpang Tiga (B)", "Jenis_Permukaan": "Aspal", "Kondisi_drainase": "Parit tersumbat dengan sampah dan rumput." }, "geometry": { "type": "Point", "coordinates": [ 101.4519, 0.4607 ] } },
-                { "type": "Feature", "properties": { "ID": 35, "Nama Lokasi": "Gang AMD RT 4 Tanjung Rhu", "Jenis_Permukaan": "Aspal", "Kondisi_drainase": "Tergenang pasca hujan; tidak ada saluran pembuangan." }, "geometry": { "type": "Point", "coordinates": [ 101.471, 0.544 ] } },
-                { "type": "Feature", "properties": { "ID": 36, "Nama Lokasi": "Jalan Sumber Sari (Tanjung Rhu)", "Jenis_Permukaan": "Aspal", "Kondisi_drainase": "Genangan 40–70 cm saat Sungai Siak meluap." }, "geometry": { "type": "Point", "coordinates": [ 101.468, 0.542 ] } },
-                { "type": "Feature", "properties": { "ID": 37, "Nama Lokasi": "Jalan Cempedak Tanjung Rhu", "Jenis_Permukaan": "Aspal", "Kondisi_drainase": "Parit kecil & dangkal, genangan > 20 cm." }, "geometry": { "type": "Point", "coordinates": [ 101.4713, 0.5426 ] } },
-                { "type": "Feature", "properties": { "ID": 38, "Nama Lokasi": "Jalan Sri Purna Tanjung Rhu", "Jenis_Permukaan": "Aspal", "Kondisi_drainase": "Drainase tersumbat sampah, genangan tinggi." }, "geometry": { "type": "Point", "coordinates": [ 101.4701, 0.5461 ] } },
-                { "type": "Feature", "properties": { "ID": 39, "Nama Lokasi": "Jalan Ahmad Yani Ujung Tanjung Rhu", "Jenis_Permukaan": "Aspal", "Kondisi_drainase": "Titik rawan genangan; parit dangkal." }, "geometry": { "type": "Point", "coordinates": [ 101.4662, 0.5405 ] } },
-                { "type": "Feature", "properties": { "ID": 40, "Nama Lokasi": "Perumahan Bukit Indah Tanjung Rhu (2)", "Jenis_Permukaan": "Aspal", "Kondisi_drainase": "Area perumahan padat, genangan 30–40 cm." }, "geometry": { "type": "Point", "coordinates": [ 101.4725, 0.5415 ] } },
-                { "type": "Feature", "properties": { "ID": 41, "Nama Lokasi": "Jalan MH Thamrin (Pusat Kota Pekanbaru)", "Jenis_Permukaan": "Aspal", "Kondisi_drainase": "Drainase relatif baik namun sempit, potensi tersumbat sedimen." }, "geometry": { "type": "Point", "coordinates": [ 101.4473, 0.5352 ] } },
-                { "type": "Feature", "properties": { "ID": 42, "Nama Lokasi": "Simpang Tiga Thamrin – Juanda", "Jenis_Permukaan": "Aspal", "Kondisi_drainase": "Parit kecil dan dangkal, genangan saat hujan >30 menit." }, "geometry": { "type": "Point", "coordinates": [ 101.4482, 0.5358 ] } },
-                { "type": "Feature", "properties": { "ID": 43, "Nama Lokasi": "Jalan Bukit Barisan – Depan Ruko", "Jenis_Permukaan": "Aspal", "Kondisi_drainase": "Tidak ada parit di sisi jalan, genangan menyebar." }, "geometry": { "type": "Point", "coordinates": [ 101.4745, 0.5325 ] } },
-                { "type": "Feature", "properties": { "ID": 44, "Nama Lokasi": "Jalan Bukit Barisan – Dekat Masjid Al-Ikhlas", "Jenis_Permukaan": "Aspal", "Kondisi_drainase": "Saluran air kecil & dangkal, aliran lambat." }, "geometry": { "type": "Point", "coordinates": [ 101.4728, 0.532 ] } },
-                { "type": "Feature", "properties": { "ID": 45, "Nama Lokasi": "Jalan Bukit Barisan – Cekungan 700m", "Jenis_Permukaan": "Aspal", "Kondisi_drainase": "Lokasi cekungan alami, genangan 20–35 cm." }, "geometry": { "type": "Point", "coordinates": [ 101.4715, 0.5318 ] } },
-                { "type": "Feature", "properties": { "ID": 46, "Nama Lokasi": "Jalan Bukit Barisan – Perumahan Indah", "Jenis_Permukaan": "Aspal", "Kondisi_drainase": "Drainase tersumbat sedimen, genangan 1–2 jam." }, "geometry": { "type": "Point", "coordinates": [ 101.4758, 0.5332 ] } },
-                { "type": "Feature", "properties": { "ID": 47, "Nama Lokasi": "Jalan Bukit Barisan – Simpang Harapan Raya", "Jenis_Permukaan": "Aspal", "Kondisi_drainase": "Parit dangkal, air sering meluap ke jalan." }, "geometry": { "type": "Point", "coordinates": [ 101.4769, 0.5337 ] } },
-                { "type": "Feature", "properties": { "ID": 48, "Nama Lokasi": "Jalan Bukit Barisan – Depan SDN 165", "Jenis_Permukaan": "Aspal", "Kondisi_drainase": "Parit sempit, air sering naik ke jalan." }, "geometry": { "type": "Point", "coordinates": [ 101.4733, 0.5319 ] } },
-                { "type": "Feature", "properties": { "ID": 49, "Nama Lokasi": "Jalan Bukit Barisan – Belakang Perkantoran", "Jenis_Permukaan": "Aspal", "Kondisi_drainase": "Cekungan rendah, air tertahan 3–4 jam." }, "geometry": { "type": "Point", "coordinates": [ 101.4628, 0.5226 ] } },
-                { "type": "Feature", "properties": { "ID": 50, "Nama Lokasi": "Jalan Bukit Barisan – Gang Sederhana", "Jenis_Permukaan": "Aspal", "Kondisi_drainase": "Drainase tersumbat sampah rumah tangga." }, "geometry": { "type": "Point", "coordinates": [ 101.4761, 0.5328 ] } },
-                { "type": "Feature", "properties": { "ID": 51, "Nama Lokasi": "Jalan Bukit Barisan – Depan Apotek Mitra", "Jenis_Permukaan": "Aspal", "Kondisi_drainase": "Genangan 15–20 cm, parit dangkal." }, "geometry": { "type": "Point", "coordinates": [ 101.4739, 0.5323 ] } },
-                { "type": "Feature", "properties": { "ID": 52, "Nama Lokasi": "Jalan Bukit Barisan – Arah ke Parit Indah", "Jenis_Permukaan": "Aspal", "Kondisi_drainase": "Parit curam dan penuh sampah, aliran tersumbat." }, "geometry": { "type": "Point", "coordinates": [ 101.4779, 0.5339 ] } },
-                { "type": "Feature", "properties": { "ID": 53, "Nama Lokasi": "Jalan Bambukuning – Ruas Tengah", "Jenis_Permukaan": "Aspal", "Kondisi_drainase": "Drainase sempit dan tidak terhubung." }, "geometry": { "type": "Point", "coordinates": [ 101.455, 0.535 ] } },
-                { "type": "Feature", "properties": { "ID": 54, "Nama Lokasi": "Jalan Bambukuning Ujung", "Jenis_Permukaan": "Aspal", "Kondisi_drainase": "Parit dangkal dan tertutup sedimen." }, "geometry": { "type": "Point", "coordinates": [ 101.457, 0.5356 ] } },
-                { "type": "Feature", "properties": { "ID": 55, "Nama Lokasi": "Jalan Bambukuning – Dekat Perumahan", "Jenis_Permukaan": "Aspal", "Kondisi_drainase": "Daerah cekungan, air mengumpul di tengah jalan." }, "geometry": { "type": "Point", "coordinates": [ 101.4538, 0.5343 ] } },
-                { "type": "Feature", "properties": { "ID": 56, "Nama Lokasi": "Gang Bambukuning II", "Jenis_Permukaan": "Aspal", "Kondisi_drainase": "Tidak ada saluran samping jalan; genangan 10–15 cm." }, "geometry": { "type": "Point", "coordinates": [ 101.4544, 0.5352 ] } },
-                { "type": "Feature", "properties": { "ID": 57, "Nama Lokasi": "Jalan Bambukuning – Akses Sisingamangaraja", "Jenis_Permukaan": "Aspal", "Kondisi_drainase": "Drainase terputus; air mengalir lambat." }, "geometry": { "type": "Point", "coordinates": [ 101.4562, 0.5361 ] } },
-                { "type": "Feature", "properties": { "ID": 58, "Nama Lokasi": "Jalan Bambukuning – Depan Mushola Al-Ikhlas", "Jenis_Permukaan": "Aspal", "Kondisi_drainase": "Parit kecil & dangkal, air naik ke jalan." }, "geometry": { "type": "Point", "coordinates": [ 101.4558, 0.5348 ] } },
-                { "type": "Feature", "properties": { "ID": 59, "Nama Lokasi": "Jalan Bambukuning – Gang Melati", "Jenis_Permukaan": "Beton", "Kondisi_drainase": "Tidak ada drainase samping; genangan 5–10 cm." }, "geometry": { "type": "Point", "coordinates": [ 101.4549, 0.5354 ] } },
-                { "type": "Feature", "properties": { "ID": 60, "Nama Lokasi": "Jalan Bambukuning – Titik Rendah Dekat Jembatan Kecil", "Jenis_Permukaan": "Aspal", "Kondisi_drainase": "Daerah cekungan, air menggenang cepat saat hujan." }, "geometry": { "type": "Point", "coordinates": [ 101.4526, 0.5337 ] } },
-                { "type": "Feature", "properties": { "ID": 61, "Nama Lokasi": "Jalan Kuantan Raya – Depan Bengkel Motor", "Jenis_Permukaan": "Aspal", "Kondisi_drainase": "Air bertahan lama karena tidak ada jalur keluar ke parit utama." }, "geometry": { "type": "Point", "coordinates": [ 101.4489, 0.5131 ] } },
-                { "type": "Feature", "properties": { "ID": 62, "Nama Lokasi": "Jalan Kuantan 7", "Jenis_Permukaan": "Aspal", "Kondisi_drainase": "Drainase kecil & tidak terhubung ke saluran besar." }, "geometry": { "type": "Point", "coordinates": [ 101.4487, 0.5126 ] } },
-                { "type": "Feature", "properties": { "ID": 63, "Nama Lokasi": "Jalan Kuantan Raya – Titik Rendah Secara Topografi", "Jenis_Permukaan": "Aspal", "Kondisi_drainase": "Titik cekungan alami, genangan 20–30 cm." }, "geometry": { "type": "Point", "coordinates": [ 101.4491, 0.512 ] } },
-                { "type": "Feature", "properties": { "ID": 64, "Nama Lokasi": "Jalan Kuantan Raya – Dekat Gedung Pertokoan", "Jenis_Permukaan": "Aspal", "Kondisi_drainase": "Drainase dangkal, air sering melintasi jalan." }, "geometry": { "type": "Point", "coordinates": [ 101.4512, 0.5133 ] } },
-                { "type": "Feature", "properties": { "ID": 65, "Nama Lokasi": "Jalan Kuantan Raya – Belakang Sekolah", "Jenis_Permukaan": "Aspal", "Kondisi_drainase": "Parit tersumbat sampah, genangan bertahan lama." }, "geometry": { "type": "Point", "coordinates": [ 101.4508, 0.5122 ] } },
-                { "type": "Feature", "properties": { "ID": 66, "Nama Lokasi": "Jalan Kuantan Raya – Titik Arah Sungai", "Jenis_Permukaan": "Aspal", "Kondisi_drainase": "Aliran air mengarah ke satu sisi genangan 15 cm mudah terjadi." }, "geometry": { "type": "Point", "coordinates": [ 101.4485, 0.5135 ] } },
-                { "type": "Feature", "properties": { "ID": 67, "Nama Lokasi": "Jalan Kuantan Raya – Dekat Rumah Makan Kuantan", "Jenis_Permukaan": "Aspal", "Kondisi_drainase": "Parit tersumbat, aliran air melambat saat hujan." }, "geometry": { "type": "Point", "coordinates": [ 101.4499, 0.5136 ] } },
-                { "type": "Feature", "properties": { "ID": 68, "Nama Lokasi": "Jalan Kuantan Raya – Depan Kios Warga", "Jenis_Permukaan": "Aspal", "Kondisi_drainase": "Genangan 10–15 cm saat hujan deras." }, "geometry": { "type": "Point", "coordinates": [ 101.4496, 0.5125 ] } },
-                { "type": "Feature", "properties": { "ID": 69, "Nama Lokasi": "Jalan Kuantan Raya – Gang Flamboyan", "Jenis_Permukaan": "Aspal", "Kondisi_drainase": "Drainase kecil, air sulit mengalir." }, "geometry": { "type": "Point", "coordinates": [ 101.451, 0.5127 ] } },
-                { "type": "Feature", "properties": { "ID": 70, "Nama Lokasi": "Jalan Gobah – Dekat Gang Gobah 1", "Jenis_Permukaan": "Aspal", "Kondisi_drainase": "Drainase sempit, mudah tersumbat sampah harian." }, "geometry": { "type": "Point", "coordinates": [ 101.4524, 0.5272 ] } },
-                { "type": "Feature", "properties": { "ID": 71, "Nama Lokasi": "Jalan Hangtuah – Masjid Al Furqan", "Jenis_Permukaan": "Aspal", "Kondisi_drainase": "Sedimentasi tebal di drainase,genangan saat hujan." }, "geometry": { "type": "Point", "coordinates": [ 101.443, 0.5338 ] } },
-                { "type": "Feature", "properties": { "ID": 72, "Nama Lokasi": "Jalan Obor – Dekat Perumahan Warga", "Jenis_Permukaan": "Aspal", "Kondisi_drainase": "Drainase dangkal & tersumbat sedimen; air mengalir sangat lambat." }, "geometry": { "type": "Point", "coordinates": [ 101.4519, 0.5058 ] } },
-                { "type": "Feature", "properties": { "ID": 73, "Nama Lokasi": "RW 11, Kelurahan Mentangor (Kulim)", "Jenis_Permukaan": "Aspal", "Kondisi_drainase": "Genangan jalan dilaporkan Camat saat inspeksi banjir." }, "geometry": { "type": "Point", "coordinates": [ 101.453, 0.506 ] } },
-                { "type": "Feature", "properties": { "ID": 74, "Nama Lokasi": "Perumahan RW 14, Kelurahan Pebatuan (Kulim)", "Jenis_Permukaan": "Aspal", "Kondisi_drainase": "Titik banjir sesaat karena drainase di kawasan pedesaan tidak maksimal." }, "geometry": { "type": "Point", "coordinates": [ 101.4505, 0.502 ] } },
-                { "type": "Feature", "properties": { "ID": 75, "Nama Lokasi": "Jalan Teratai – Dekat Pasar Bawah", "Jenis_Permukaan": "Aspal", "Kondisi_drainase": "Drainase padat sampah, genangan sering terbentuk." }, "geometry": { "type": "Point", "coordinates": [ 101.4488, 0.5281 ] } },
-                { "type": "Feature", "properties": { "ID": 76, "Nama Lokasi": "Jalan Suka Karya – Panam", "Jenis_Permukaan": "Aspal", "Kondisi_drainase": "Parit kecil, genangan muncul saat hujan 30 menit." }, "geometry": { "type": "Point", "coordinates": [ 101.3793, 0.4838 ] } },
-                { "type": "Feature", "properties": { "ID": 77, "Nama Lokasi": "Jalan Rajawali – Sukajadi", "Jenis_Permukaan": "Aspal", "Kondisi_drainase": "Aliran air lambat, drainase tidak tersambung ke saluran besar." }, "geometry": { "type": "Point", "coordinates": [ 101.4355, 0.5209 ] } },
-                { "type": "Feature", "properties": { "ID": 78, "Nama Lokasi": "Gang Kuala Lumpur – Depan Pasar Kodim", "Jenis_Permukaan": "Beton", "Kondisi_drainase": "Daerah cekungan kecil, genangan bertahan lama." }, "geometry": { "type": "Point", "coordinates": [ 101.4583, 0.5241 ] } },
-                { "type": "Feature", "properties": { "ID": 79, "Nama Lokasi": "Jalan Kaharuddin Nasution – Dekat Jembatan", "Jenis_Permukaan": "Aspal", "Kondisi_drainase": "Direncanakan dibuat box culvert karena parit tidak mampu menampung debit hujan." }, "geometry": { "type": "Point", "coordinates": [ 101.4559, 0.5059 ] } },
-                { "type": "Feature", "properties": { "ID": 80, "Nama Lokasi": "Jalan Karyawan – Labuh Baru", "Jenis_Permukaan": "Beton", "Kondisi_drainase": "Tidak ada parit, air berkumpul di cekungan." }, "geometry": { "type": "Point", "coordinates": [ 101.4233, 0.5118 ] } },
-                { "type": "Feature", "properties": { "ID": 81, "Nama Lokasi": "Jalan Melur – Dekat Pasar Melur", "Jenis_Permukaan": "Aspal", "Kondisi_drainase": "Drainase dangkal & tersumbat, genangan 10–20 cm." }, "geometry": { "type": "Point", "coordinates": [ 101.4509, 0.5241 ] } },
-                { "type": "Feature", "properties": { "ID": 82, "Nama Lokasi": "Jalan Garuda Sakti KM 3", "Jenis_Permukaan": "Aspal", "Kondisi_drainase": "Parit terlalu kecil, aliran terhambat." }, "geometry": { "type": "Point", "coordinates": [ 101.3544, 0.4777 ] } },
-                { "type": "Feature", "properties": { "ID": 83, "Nama Lokasi": "Jalan Lobak – Arengka", "Jenis_Permukaan": "Aspal", "Kondisi_drainase": "Drainase sempit, mudah meluap." }, "geometry": { "type": "Point", "coordinates": [ 101.444, 0.5080 ] } },
-                { "type": "Feature", "properties": { "ID": 84, "Nama Lokasi": "Jalan Sikumbang – Kota Tengah", "Jenis_Permukaan": "Beton", "Kondisi_drainase": "Tidak ada drainase memadai." }, "geometry": { "type": "Point", "coordinates": [ 101.4522, 0.5197 ] } },
-                { "type": "Feature", "properties": { "ID": 85, "Nama Lokasi": "Jalan Kutilang – Sukajadi", "Jenis_Permukaan": "Aspal", "Kondisi_drainase": "Aliran air lambat, daerah cekungan." }, "geometry": { "type": "Point", "coordinates": [ 101.4388, 0.5205 ] } },
-                { "type": "Feature", "properties": { "ID": 86, "Nama Lokasi": "Jalan Seroja – Arengka 1", "Jenis_Permukaan": "Aspal", "Kondisi_drainase": "Drainase tersumbat sampah pasar." }, "geometry": { "type": "Point", "coordinates": [ 101.4113, 0.4932 ] } },
-                { "type": "Feature", "properties": { "ID": 87, "Nama Lokasi": "Jalan Beringin – Payung Sekaki", "Jenis_Permukaan": "Aspal", "Kondisi_drainase": "Saluran tersumbat dan kotor." }, "geometry": { "type": "Point", "coordinates": [ 101.4209, 0.5087 ] } },
-                { "type": "Feature", "properties": { "ID": 88, "Nama Lokasi": "Jalan Tanjung Datuk – Dekat Pelabuhan", "Jenis_Permukaan": "Aspal", "Kondisi_drainase": "Luapan sungai + parit kecil." }, "geometry": { "type": "Point", "coordinates": [ 101.4604, 0.5377 ] } },
-                { "type": "Feature", "properties": { "ID": 89, "Nama Lokasi": "Jalan Karya Indah – Bukit Raya", "Jenis_Permukaan": "Aspal", "Kondisi_drainase": "Drainase tidak terhubung ke saluran besar." }, "geometry": { "type": "Point", "coordinates": [ 101.4452, 0.4991 ] } },
-                { "type": "Feature", "properties": { "ID": 90, "Nama Lokasi": "Jalan Kereta Api – Dekat Gudang", "Jenis_Permukaan": "Aspal", "Kondisi_drainase": "Parit penuh lumpur, air tidak mengalir." }, "geometry": { "type": "Point", "coordinates": [ 101.4639, 0.5258 ] } },
-                { "type": "Feature", "properties": { "ID": 91, "Nama Lokasi": "Jalan Harapan – Bukit Raya", "Jenis_Permukaan": "Aspal", "Kondisi_drainase": "Drainase terputus di beberapa titik, genangan muncul cepat." }, "geometry": { "type": "Point", "coordinates": [ 101.4458, 0.5017 ] } },
-                { "type": "Feature", "properties": { "ID": 92, "Nama Lokasi": "Jalan Balam – Sukajadi", "Jenis_Permukaan": "Aspal", "Kondisi_drainase": "Parit kecil & tidak tersambung." }, "geometry": { "type": "Point", "coordinates": [ 101.4379, 0.5199 ] } },
-                { "type": "Feature", "properties": { "ID": 93, "Nama Lokasi": "Jalan Rambutan – Tangkerang", "Jenis_Permukaan": "Aspal", "Kondisi_drainase": "Parit tersumbat daun & sampah." }, "geometry": { "type": "Point", "coordinates": [ 101.4695, 0.5233 ] } },
-                { "type": "Feature", "properties": { "ID": 94, "Nama Lokasi": "Jalan HOS Cokroaminoto – Dekat Pasar", "Jenis_Permukaan": "Aspal", "Kondisi_drainase": "Sedimentasi berat, aliran lambat." }, "geometry": { "type": "Point", "coordinates": [ 101.4561, 0.5248 ] } },
-                { "type": "Feature", "properties": { "ID": 95, "Nama Lokasi": "Jalan Kakap – Kampung Tengah", "Jenis_Permukaan": "Beton", "Kondisi_drainase": "Genangan lokal karena cekungan." }, "geometry": { "type": "Point", "coordinates": [ 101.4486, 0.5201 ] } },
-                { "type": "Feature", "properties": { "ID": 96, "Nama Lokasi": "Jalan Durian – Sukajadi", "Jenis_Permukaan": "Aspal", "Kondisi_drainase": "Drainase sempit dan tidak menyatu ke saluran besar." }, "geometry": { "type": "Point", "coordinates": [ 101.4402, 0.5201 ] } }
-            ]
-        };
+        // Data yang sama persis dengan di Peta
+        var dataBanjir = [
+                { "ID": 1, "Nama": "Jalan Jenderal Sudirman (depan Masjid Al-Mujahidin)", "Permukaan": "Aspal", "Masalah": "Drainase dangkal dan tersumbat, genangan saat hujan deras.", "Lat": 0.533, "Long": 101.45 },
+                { "ID": 2, "Nama": "Jalan Soekarno-Hatta (simpang Tabek Gadang)", "Permukaan": "Aspal", "Masalah": "Parit tidak aktif, air hujan meluap ke jalan.", "Lat": 0.5245, "Long": 101.3951 },
+                { "ID": 3, "Nama": "Jalan HR Soebrantas (Pasar Pagi Arengka)", "Permukaan": "Aspal", "Masalah": "Drainase tersumbat sampah & kabel, genangan hingga 30 cm.", "Lat": 0.4812, "Long": 101.3926 },
+                { "ID": 4, "Nama": "Jalan Paus, Tangkerang Barat", "Permukaan": "Aspal", "Masalah": "Parit sempit dan dangkal, air tidak tertampung.", "Lat": 0.5091, "Long": 101.4607 },
+                { "ID": 5, "Nama": "Jalan Kuantan Raya", "Permukaan": "Aspal", "Masalah": "Parit tertutup bangunan, sering tergenang.", "Lat": 0.5129, "Long": 101.4493 },
+                { "ID": 6, "Nama": "Jalan Taskurun (dekat RS Santa Maria)", "Permukaan": "Aspal", "Masalah": "Drainase tidak berfungsi baik, genangan 10–20 cm.", "Lat": 0.5164, "Long": 101.4548 },
+                { "ID": 7, "Nama": "Jalan Riau (Simpang Empat Sukaramai Trade Center)", "Permukaan": "Aspal", "Masalah": "Drainase tertutup & kapasitas kecil, genangan rutin.", "Lat": 0.5147, "Long": 101.4562 },
+                { "ID": 8, "Nama": "Jalan Melur, Sukajadi", "Permukaan": "Aspal", "Masalah": "Drainase kecil dan tertutup sedimen.", "Lat": 0.5175, "Long": 101.4379 },
+                { "ID": 9, "Nama": "Jalan Rajawali Sakti, Panam", "Permukaan": "Aspal", "Masalah": "Drainase minim dan saluran tersumbat sampah.", "Lat": 0.4805, "Long": 101.3993 },
+                { "ID": 10, "Nama": "Jalan Garuda Sakti KM 3", "Permukaan": "Aspal", "Masalah": "Saluran tidak tersambung, air tergenang lama.", "Lat": 0.4743, "Long": 101.3841 },
+                { "ID": 11, "Nama": "Jalan Kaharuddin Nasution (Simpang Tiga Bandara)", "Permukaan": "Aspal", "Masalah": "Saluran air dangkal, sering banjir lokal.", "Lat": 0.4607, "Long": 101.4518 },
+                { "ID": 12, "Nama": "Jalan Parit Indah", "Permukaan": "Aspal", "Masalah": "Genangan karena sistem parit tidak lancar.", "Lat": 0.5099, "Long": 101.471 },
+                { "ID": 13, "Nama": "Jalan Delima, Tampan", "Permukaan": "Aspal", "Masalah": "Parit sempit, curah hujan tinggi sebabkan genangan.", "Lat": 0.4752, "Long": 101.4048 },
+                { "ID": 14, "Nama": "Jalan Suka Karya", "Permukaan": "Aspal", "Masalah": "Tidak ada saluran samping jalan, air tertahan.", "Lat": 0.4789, "Long": 101.3929 },
+                { "ID": 15, "Nama": "Jalan Cempedak, Rumbai", "Permukaan": "Aspal", "Masalah": "Drainase tidak berfungsi, genangan saat hujan lebat.", "Lat": 0.5481, "Long": 101.4461 },
+                { "ID": 16, "Nama": "Jembatan Siak V", "Permukaan": "Aspal", "Masalah": "Tersumbat sebagian, aliran lambat saat hujan tinggi.", "Lat": 0.53395, "Long": 101.4316 },
+                { "ID": 17, "Nama": "Kelurahan Meranti Pandak (Rumbai)", "Permukaan": "Aspal", "Masalah": "Drainase alami tersumbat sedimen.", "Lat": 0.5735, "Long": 101.4324 },
+                { "ID": 18, "Nama": "Kelurahan Sri Meranti (Rumbai)", "Permukaan": "Aspal", "Masalah": "Permukiman tergenang 50–100 cm akibat luapan Sungai Siak.", "Lat": 0.5842, "Long": 101.4208 },
+                { "ID": 19, "Nama": "Jalan Paus Ujung (Rumbai)", "Permukaan": "Aspal", "Masalah": "Parit meluap ke badan jalan karena saluran tertutup.", "Lat": 0.5569, "Long": 101.4402 },
+                { "ID": 20, "Nama": "Jalan Sudirman Ujung", "Permukaan": "Aspal", "Masalah": "Genangan hingga 40 cm; jalan sempat ditutup.", "Lat": 0.5524, "Long": 101.4255 },
+                { "ID": 21, "Nama": "Jalan Nelayan Ujung (tepi Sungai Siak)", "Permukaan": "Aspal", "Masalah": "Area rendah dekat sungai; genangan saat pasang.", "Lat": 0.5787, "Long": 101.4172 },
+                { "ID": 22, "Nama": "Perumahan Griya Permata Rumbai", "Permukaan": "Aspal", "Masalah": "Kompleks perumahan langganan genangan.", "Lat": 0.5674, "Long": 101.4355 },
+                { "ID": 23, "Nama": "Perumahan Bukit Indah Tanjung Rhu", "Permukaan": "Aspal", "Masalah": "Area perumahan padat; genangan saat hujan 30–40 cm.", "Lat": 0.5415, "Long": 101.4725 },
+                { "ID": 24, "Nama": "Jalan Soekarno-Hatta (Depan Gereja)", "Permukaan": "Aspal", "Masalah": "Jalan bergelombang dan saluran air tersumbat.", "Lat": 0.5188, "Long": 101.4198 },
+                { "ID": 25, "Nama": "Jl. Diponegoro No.55 (Man 2 Pekanbaru)", "Permukaan": "Aspal", "Masalah": "Drainase tidak berfungsi baik, tersumbat sampah.", "Lat": 0.51103, "Long": 101.4521 },
+                { "ID": 26, "Nama": "Jl. Diponegoro 49-53 (Persada Bunda)", "Permukaan": "Aspal", "Masalah": "Drainase tidak berfungsi baik, tersumbat sampah.", "Lat": 0.51186, "Long": 101.45209 },
+                { "ID": 27, "Nama": "Jl. Diponegoro No.34 (Arya Duta Hotel)", "Permukaan": "Aspal", "Masalah": "Parit sempit dan dangkal, air tidak tertampung.", "Lat": 0.51537, "Long": 101.4521 },
+                { "ID": 28, "Nama": "Jl. Wr. Supratman Ujung, Suka Maju (1)", "Permukaan": "Aspal", "Masalah": "Parit sempit dan tersumbat dengan sampah.", "Lat": 0.5142, "Long": 101.4568 },
+                { "ID": 29, "Nama": "Jl. Wr. Supratman Ujung, Suka Maju (2)", "Permukaan": "Aspal", "Masalah": "Parit sempit dan tersumbat dengan sampah.", "Lat": 0.5156, "Long": 101.4568 },
+                { "ID": 30, "Nama": "Jl. MH Thamrin, Suka Maju", "Permukaan": "Aspal", "Masalah": "Drainase tidak baik dan tersumbat dengan sampah.", "Lat": 0.516009, "Long": 101.4571 },
+                { "ID": 31, "Nama": "Jl. Beringin 33-37, Suka Maju", "Permukaan": "Aspal", "Masalah": "Parit tersumbat dengan sampah dan rumput.", "Lat": 0.5169, "Long": 101.4607 },
+                { "ID": 32, "Nama": "Jl. Kaharudin Nasution, Perhentian Marpoyan", "Permukaan": "Aspal", "Masalah": "Parit tersumbat dengan sampah dan rumput.", "Lat": 0.4627, "Long": 101.4529 },
+                { "ID": 33, "Nama": "Jl. Kaharuddin Nasution 1, Simpang Tiga (A)", "Permukaan": "Aspal", "Masalah": "Parit tersumbat dengan sampah dan rumput.", "Lat": 0.4607, "Long": 101.45204 },
+                { "ID": 34, "Nama": "Jl. Kaharuddin Nasution 1, Simpang Tiga (B)", "Permukaan": "Aspal", "Masalah": "Parit tersumbat dengan sampah dan rumput.", "Lat": 0.4607, "Long": 101.4519 },
+                { "ID": 35, "Nama": "Gang AMD RT 4 Tanjung Rhu", "Permukaan": "Aspal", "Masalah": "Tergenang pasca hujan; tidak ada saluran pembuangan.", "Lat": 0.544, "Long": 101.471 },
+                { "ID": 36, "Nama": "Jalan Sumber Sari (Tanjung Rhu)", "Permukaan": "Aspal", "Masalah": "Genangan 40–70 cm saat Sungai Siak meluap.", "Lat": 0.542, "Long": 101.468 },
+                { "ID": 37, "Nama": "Jalan Cempedak Tanjung Rhu", "Permukaan": "Aspal", "Masalah": "Parit kecil & dangkal, genangan > 20 cm.", "Lat": 0.5426, "Long": 101.4713 },
+                { "ID": 38, "Nama": "Jalan Sri Purna Tanjung Rhu", "Permukaan": "Aspal", "Masalah": "Drainase tersumbat sampah, genangan tinggi.", "Lat": 0.5461, "Long": 101.4701 },
+                { "ID": 39, "Nama": "Jalan Ahmad Yani Ujung Tanjung Rhu", "Permukaan": "Aspal", "Masalah": "Titik rawan genangan; parit dangkal.", "Lat": 0.5405, "Long": 101.4662 },
+                { "ID": 40, "Nama": "Perumahan Bukit Indah Tanjung Rhu (2)", "Permukaan": "Aspal", "Masalah": "Area perumahan padat, genangan 30–40 cm.", "Lat": 0.5415, "Long": 101.4725 },
+                { "ID": 41, "Nama": "Jalan MH Thamrin (Pusat Kota Pekanbaru)", "Permukaan": "Aspal", "Masalah": "Drainase relatif baik namun sempit, potensi tersumbat sedimen.", "Lat": 0.5352, "Long": 101.4473 },
+                { "ID": 42, "Nama": "Simpang Tiga Thamrin – Juanda", "Permukaan": "Aspal", "Masalah": "Parit kecil dan dangkal, genangan saat hujan >30 menit.", "Lat": 0.5358, "Long": 101.4482 },
+                { "ID": 43, "Nama": "Jalan Bukit Barisan – Depan Ruko", "Permukaan": "Aspal", "Masalah": "Tidak ada parit di sisi jalan, genangan menyebar.", "Lat": 0.5325, "Long": 101.4745 },
+                { "ID": 44, "Nama": "Jalan Bukit Barisan – Dekat Masjid Al-Ikhlas", "Permukaan": "Aspal", "Masalah": "Saluran air kecil & dangkal, aliran lambat.", "Lat": 0.532, "Long": 101.4728 },
+                { "ID": 45, "Nama": "Jalan Bukit Barisan – Cekungan 700m", "Permukaan": "Aspal", "Masalah": "Lokasi cekungan alami, genangan 20–35 cm.", "Lat": 0.5318, "Long": 101.4715 },
+                { "ID": 46, "Nama": "Jalan Bukit Barisan – Perumahan Indah", "Permukaan": "Aspal", "Masalah": "Drainase tersumbat sedimen, genangan 1–2 jam.", "Lat": 0.5332, "Long": 101.4758 },
+                { "ID": 47, "Nama": "Jalan Bukit Barisan – Simpang Harapan Raya", "Permukaan": "Aspal", "Masalah": "Parit dangkal, air sering meluap ke jalan.", "Lat": 0.5337, "Long": 101.4769 },
+                { "ID": 48, "Nama": "Jalan Bukit Barisan – Depan SDN 165", "Permukaan": "Aspal", "Masalah": "Parit sempit, air sering naik ke jalan.", "Lat": 0.5319, "Long": 101.4733 },
+                { "ID": 49, "Nama": "Jalan Bukit Barisan – Belakang Perkantoran", "Permukaan": "Aspal", "Masalah": "Cekungan rendah, air tertahan 3–4 jam.", "Lat": 0.5226, "Long": 101.4628 },
+                { "ID": 50, "Nama": "Jalan Bukit Barisan – Gang Sederhana", "Permukaan": "Aspal", "Masalah": "Drainase tersumbat sampah rumah tangga.", "Lat": 0.5328, "Long": 101.4761 },
+                { "ID": 51, "Nama": "Jalan Bukit Barisan – Depan Apotek Mitra", "Permukaan": "Aspal", "Masalah": "Genangan 15–20 cm, parit dangkal.", "Lat": 0.5323, "Long": 101.4739 },
+                { "ID": 52, "Nama": "Jalan Bukit Barisan – Arah ke Parit Indah", "Permukaan": "Aspal", "Masalah": "Parit curam dan penuh sampah, aliran tersumbat.", "Lat": 0.5339, "Long": 101.4779 },
+                { "ID": 53, "Nama": "Jalan Bambukuning – Ruas Tengah", "Permukaan": "Aspal", "Masalah": "Drainase sempit dan tidak terhubung.", "Lat": 0.535, "Long": 101.455 },
+                { "ID": 54, "Nama": "Jalan Bambukuning Ujung", "Permukaan": "Aspal", "Masalah": "Parit dangkal dan tertutup sedimen.", "Lat": 0.5356, "Long": 101.457 },
+                { "ID": 55, "Nama": "Jalan Bambukuning – Dekat Perumahan", "Permukaan": "Aspal", "Masalah": "Daerah cekungan, air mengumpul di tengah jalan.", "Lat": 0.5343, "Long": 101.4538 },
+                { "ID": 56, "Nama": "Gang Bambukuning II", "Permukaan": "Aspal", "Masalah": "Tidak ada saluran samping jalan; genangan 10–15 cm.", "Lat": 0.5352, "Long": 101.4544 },
+                { "ID": 57, "Nama": "Jalan Bambukuning – Akses Sisingamangaraja", "Permukaan": "Aspal", "Masalah": "Drainase terputus; air mengalir lambat.", "Lat": 0.5361, "Long": 101.4562 },
+                { "ID": 58, "Nama": "Jalan Bambukuning – Depan Mushola Al-Ikhlas", "Permukaan": "Aspal", "Masalah": "Parit kecil & dangkal, air naik ke jalan.", "Lat": 0.5348, "Long": 101.4558 },
+                { "ID": 59, "Nama": "Jalan Bambukuning – Gang Melati", "Permukaan": "Beton", "Masalah": "Tidak ada drainase samping; genangan 5–10 cm.", "Lat": 0.5354, "Long": 101.4549 },
+                { "ID": 60, "Nama": "Jalan Bambukuning – Titik Rendah Dekat Jembatan Kecil", "Permukaan": "Aspal", "Masalah": "Daerah cekungan, air menggenang cepat saat hujan.", "Lat": 0.5337, "Long": 101.4526 },
+                { "ID": 61, "Nama": "Jalan Kuantan Raya – Depan Bengkel Motor", "Permukaan": "Aspal", "Masalah": "Air bertahan lama karena tidak ada jalur keluar ke parit utama.", "Lat": 0.5131, "Long": 101.4489 },
+                { "ID": 62, "Nama": "Jalan Kuantan 7", "Permukaan": "Aspal", "Masalah": "Drainase kecil & tidak terhubung ke saluran besar.", "Lat": 0.5126, "Long": 101.4487 },
+                { "ID": 63, "Nama": "Jalan Kuantan Raya – Titik Rendah Secara Topografi", "Permukaan": "Aspal", "Masalah": "Titik cekungan alami, genangan 20–30 cm.", "Lat": 0.512, "Long": 101.4491 },
+                { "ID": 64, "Nama": "Jalan Kuantan Raya – Dekat Gedung Pertokoan", "Permukaan": "Aspal", "Masalah": "Drainase dangkal, air sering melintasi jalan.", "Lat": 0.5133, "Long": 101.4512 },
+                { "ID": 65, "Nama": "Jalan Kuantan Raya – Belakang Sekolah", "Permukaan": "Aspal", "Masalah": "Parit tersumbat sampah, genangan bertahan lama.", "Lat": 0.5122, "Long": 101.4508 },
+                { "ID": 66, "Nama": "Jalan Kuantan Raya – Titik Arah Sungai", "Permukaan": "Aspal", "Masalah": "Aliran air mengarah ke satu sisi genangan 15 cm mudah terjadi.", "Lat": 0.5135, "Long": 101.4485 },
+                { "ID": 67, "Nama": "Jalan Kuantan Raya – Dekat Rumah Makan Kuantan", "Permukaan": "Aspal", "Masalah": "Parit tersumbat, aliran air melambat saat hujan.", "Lat": 0.5136, "Long": 101.4499 },
+                { "ID": 68, "Nama": "Jalan Kuantan Raya – Depan Kios Warga", "Permukaan": "Aspal", "Masalah": "Genangan 10–15 cm saat hujan deras.", "Lat": 0.5125, "Long": 101.4496 },
+                { "ID": 69, "Nama": "Jalan Kuantan Raya – Gang Flamboyan", "Permukaan": "Aspal", "Masalah": "Drainase kecil, air sulit mengalir.", "Lat": 0.5127, "Long": 101.451 },
+                { "ID": 70, "Nama": "Jalan Gobah – Dekat Gang Gobah 1", "Permukaan": "Aspal", "Masalah": "Drainase sempit, mudah tersumbat sampah harian.", "Lat": 0.5272, "Long": 101.4524 },
+                { "ID": 71, "Nama": "Jalan Hangtuah – Masjid Al Furqan", "Permukaan": "Aspal", "Masalah": "Sedimentasi tebal di drainase,genangan saat hujan.", "Lat": 0.5338, "Long": 101.443 },
+                { "ID": 72, "Nama": "Jalan Obor – Dekat Perumahan Warga", "Permukaan": "Aspal", "Masalah": "Drainase dangkal & tersumbat sedimen; air mengalir sangat lambat.", "Lat": 0.5058, "Long": 101.4519 },
+                { "ID": 73, "Nama": "RW 11, Kelurahan Mentangor (Kulim)", "Permukaan": "Aspal", "Masalah": "Genangan jalan dilaporkan Camat saat inspeksi banjir.", "Lat": 0.506, "Long": 101.453 },
+                { "ID": 74, "Nama": "Perumahan RW 14, Kelurahan Pebatuan (Kulim)", "Permukaan": "Aspal", "Masalah": "Titik banjir sesaat karena drainase di kawasan pedesaan tidak maksimal.", "Lat": 0.502, "Long": 101.4505 },
+                { "ID": 75, "Nama": "Jalan Teratai – Dekat Pasar Bawah", "Permukaan": "Aspal", "Masalah": "Drainase padat sampah, genangan sering terbentuk.", "Lat": 0.5281, "Long": 101.4488 },
+                { "ID": 76, "Nama": "Jalan Suka Karya – Panam", "Permukaan": "Aspal", "Masalah": "Parit kecil, genangan muncul saat hujan 30 menit.", "Lat": 0.4838, "Long": 101.3793 },
+                { "ID": 77, "Nama": "Jalan Rajawali – Sukajadi", "Permukaan": "Aspal", "Masalah": "Aliran air lambat, drainase tidak tersambung ke saluran besar.", "Lat": 0.5209, "Long": 101.4355 },
+                { "ID": 78, "Nama": "Gang Kuala Lumpur – Depan Pasar Kodim", "Permukaan": "Beton", "Masalah": "Daerah cekungan kecil, genangan bertahan lama.", "Lat": 0.5241, "Long": 101.4583 },
+                { "ID": 79, "Nama": "Jalan Kaharuddin Nasution – Dekat Jembatan", "Permukaan": "Aspal", "Masalah": "Direncanakan dibuat box culvert karena parit tidak mampu menampung debit hujan.", "Lat": 0.5059, "Long": 101.4559 },
+                { "ID": 80, "Nama": "Jalan Karyawan – Labuh Baru", "Permukaan": "Beton", "Masalah": "Tidak ada parit, air berkumpul di cekungan.", "Lat": 0.5118, "Long": 101.4233 },
+                { "ID": 81, "Nama": "Jalan Melur – Dekat Pasar Melur", "Permukaan": "Aspal", "Masalah": "Drainase dangkal & tersumbat, genangan 10–20 cm.", "Lat": 0.5241, "Long": 101.4509 },
+                { "ID": 82, "Nama": "Jalan Garuda Sakti KM 3", "Permukaan": "Aspal", "Masalah": "Parit terlalu kecil, aliran terhambat.", "Lat": 0.4777, "Long": 101.3544 },
+                { "ID": 83, "Nama": "Jalan Lobak – Arengka", "Permukaan": "Aspal", "Masalah": "Drainase sempit, mudah meluap.", "Lat": 0.5080, "Long": 101.444 },
+                { "ID": 84, "Nama": "Jalan Sikumbang – Kota Tengah", "Permukaan": "Beton", "Masalah": "Tidak ada drainase memadai.", "Lat": 0.5197, "Long": 101.4522 },
+                { "ID": 85, "Nama": "Jalan Kutilang – Sukajadi", "Permukaan": "Aspal", "Masalah": "Aliran air lambat, daerah cekungan.", "Lat": 0.5205, "Long": 101.4388 },
+                { "ID": 86, "Nama": "Jalan Seroja – Arengka 1", "Permukaan": "Aspal", "Masalah": "Drainase tersumbat sampah pasar.", "Lat": 0.4932, "Long": 101.4113 },
+                { "ID": 87, "Nama": "Jalan Beringin – Payung Sekaki", "Permukaan": "Aspal", "Masalah": "Saluran tersumbat dan kotor.", "Lat": 0.5087, "Long": 101.4209 },
+                { "ID": 88, "Nama": "Jalan Tanjung Datuk – Dekat Pelabuhan", "Permukaan": "Aspal", "Masalah": "Luapan sungai + parit kecil.", "Lat": 0.5377, "Long": 101.4604 },
+                { "ID": 89, "Nama": "Jalan Karya Indah – Bukit Raya", "Permukaan": "Aspal", "Masalah": "Drainase tidak terhubung ke saluran besar.", "Lat": 0.4991, "Long": 101.4452 },
+                { "ID": 90, "Nama": "Jalan Kereta Api – Dekat Gudang", "Permukaan": "Aspal", "Masalah": "Parit penuh lumpur, air tidak mengalir.", "Lat": 0.5258, "Long": 101.4639 },
+                { "ID": 91, "Nama": "Jalan Harapan – Bukit Raya", "Permukaan": "Aspal", "Masalah": "Drainase terputus di beberapa titik, genangan muncul cepat.", "Lat": 0.5017, "Long": 101.4458 },
+                { "ID": 92, "Nama": "Jalan Balam – Sukajadi", "Permukaan": "Aspal", "Masalah": "Parit kecil & tidak tersambung.", "Lat": 0.5199, "Long": 101.4379 },
+                { "ID": 93, "Nama": "Jalan Rambutan – Tangkerang", "Permukaan": "Aspal", "Masalah": "Parit tersumbat daun & sampah.", "Lat": 0.5233, "Long": 101.4695 },
+                { "ID": 94, "Nama": "Jalan HOS Cokroaminoto – Dekat Pasar", "Permukaan": "Aspal", "Masalah": "Sedimentasi berat, aliran lambat.", "Lat": 0.5248, "Long": 101.4561 },
+                { "ID": 95, "Nama": "Jalan Kakap – Kampung Tengah", "Permukaan": "Beton", "Masalah": "Genangan lokal karena cekungan.", "Lat": 0.5201, "Long": 101.4486 },
+                { "ID": 96, "Nama": "Jalan Durian – Sukajadi", "Permukaan": "Aspal", "Masalah": "Drainase sempit dan tidak menyatu ke saluran besar.", "Lat": 0.5201, "Long": 101.4402 }
+        ];
 
-        // --- SCRIPT OTOMATIS PENGISI TABEL ---
-        // Script ini akan mengambil data dari variabel geojsonData di atas
-        // dan memasukkannya ke dalam tbody HTML supaya muncul di layar.
-        
-        const tbody = document.querySelector('#tabelData tbody');
-        const features = geojsonData.features;
+        // Fungsi Render Tabel
+        var tableBody = document.getElementById('tableBody');
+        var htmlContent = "";
 
-        features.forEach(feature => {
-            const props = feature.properties;
-            const coords = feature.geometry.coordinates; // [long, lat]
-
-            // Tentukan warna badge berdasarkan jenis permukaan
-            let badgeClass = 'badge-aspal'; // Default hijau
-            if (props.Jenis_Permukaan === 'Beton') {
-                badgeClass = 'badge-beton'; // Orange
-            } else if (props.Jenis_Permukaan === 'Tanah') {
-                badgeClass = 'badge-tanah'; // Coklat
-            }
-
-            // Buat baris tabel (HTML string)
-            const row = `
+        dataBanjir.forEach(function(item) {
+            // Cek warna badge (Aspal = Hijau, Beton = Abu/Lainnya)
+            var badgeClass = item.Permukaan.includes("Aspal") ? "badge-aspal" : "badge-beton";
+            
+            htmlContent += `
                 <tr>
-                    <td style="text-align: center;">${props.ID}</td>
-                    <td><b>${props['Nama Lokasi']}</b></td>
-                    <td><span class="badge ${badgeClass}">${props.Jenis_Permukaan}</span></td>
-                    <td>${props.Kondisi_drainase}</td>
-                    <td><small>${coords[1].toFixed(5)}, ${coords[0].toFixed(5)}</small></td>
+                    <td class="text-center">${item.ID}</td>
+                    <td>${item.Nama}</td>
+                    <td><span class="${badgeClass}">${item.Permukaan}</span></td>
+                    <td>${item.Masalah}</td>
+                    <td class="text-end font-monospace" style="font-size:12px;">${item.Lat}, ${item.Long}</td>
                 </tr>
             `;
-            
-            // Masukkan ke dalam tabel
-            tbody.insertAdjacentHTML('beforeend', row);
         });
-    </script>
 
+        tableBody.innerHTML = htmlContent;
+
+    </script>
 </body>
 </html>
