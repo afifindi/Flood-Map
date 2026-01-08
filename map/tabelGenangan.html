@@ -113,10 +113,10 @@
     </div>
 
     <div class="content-container">
-        <a href="index.html" class="back-button">← KEMBALI KE PETA</a>
+        <a href="map.html" class="back-button">← KEMBALI KE PETA</a>
 
         <h1>Master Data Survei Lapangan</h1>
-        <p class="subtitle">Total 100 Titik Lokasi Drainase & Genangan - Kota Pekanbaru</p>
+        <p class="subtitle">Total Titik Lokasi Drainase & Genangan - Kota Pekanbaru</p>
 
         <div class="table-container">
             <table id="tabelData">
@@ -129,18 +129,16 @@
                         <th style="width: 150px;">Koordinat (Lat, Long)</th>
                     </tr>
                 </thead>
-                <tbody>
-                    </tbody>
+                <tbody></tbody>
             </table>
         </div>
     </div>
 
     <script>
-        // Data Gabungan Full (1 - 100)
+        // Data Gabungan Full (User Input)
         const geojsonData = {
             "type": "FeatureCollection",
             "features": [
-                // DATA 1 - 59 (Existing)
                 { "type": "Feature", "properties": { "ID": 1, "Nama Lokasi": "Jalan Jenderal Sudirman (depan Masjid Al-Mujahidin)", "Jenis_Permukaan": "Aspal", "Kondisi_drainase": "Drainase dangkal dan tersumbat, genangan saat hujan deras." }, "geometry": { "type": "Point", "coordinates": [ 101.45, 0.533 ] } },
                 { "type": "Feature", "properties": { "ID": 2, "Nama Lokasi": "Jalan Soekarno-Hatta (simpang Tabek Gadang)", "Jenis_Permukaan": "Aspal", "Kondisi_drainase": "Parit tidak aktif, air hujan meluap ke jalan." }, "geometry": { "type": "Point", "coordinates": [ 101.3951, 0.5245 ] } },
                 { "type": "Feature", "properties": { "ID": 3, "Nama Lokasi": "Jalan HR Soebrantas (Pasar Pagi Arengka)", "Jenis_Permukaan": "Aspal", "Kondisi_drainase": "Drainase tersumbat sampah & kabel, genangan hingga 30 cm." }, "geometry": { "type": "Point", "coordinates": [ 101.3926, 0.4812 ] } },
@@ -200,8 +198,6 @@
                 { "type": "Feature", "properties": { "ID": 57, "Nama Lokasi": "Jalan Bambukuning – Akses Sisingamangaraja", "Jenis_Permukaan": "Aspal", "Kondisi_drainase": "Drainase terputus; air mengalir lambat." }, "geometry": { "type": "Point", "coordinates": [ 101.4562, 0.5361 ] } },
                 { "type": "Feature", "properties": { "ID": 58, "Nama Lokasi": "Jalan Bambukuning – Depan Mushola Al-Ikhlas", "Jenis_Permukaan": "Aspal", "Kondisi_drainase": "Parit kecil & dangkal, air naik ke jalan." }, "geometry": { "type": "Point", "coordinates": [ 101.4558, 0.5348 ] } },
                 { "type": "Feature", "properties": { "ID": 59, "Nama Lokasi": "Jalan Bambukuning – Gang Melati", "Jenis_Permukaan": "Beton", "Kondisi_drainase": "Tidak ada drainase samping; genangan 5–10 cm." }, "geometry": { "type": "Point", "coordinates": [ 101.4549, 0.5354 ] } },
-
-                // DATA 60 - 100 (New Input)
                 { "type": "Feature", "properties": { "ID": 60, "Nama Lokasi": "Jalan Bambukuning – Titik Rendah Dekat Jembatan Kecil", "Jenis_Permukaan": "Aspal", "Kondisi_drainase": "Daerah cekungan, air menggenang cepat saat hujan." }, "geometry": { "type": "Point", "coordinates": [ 101.4526, 0.5337 ] } },
                 { "type": "Feature", "properties": { "ID": 61, "Nama Lokasi": "Jalan Kuantan Raya – Depan Bengkel Motor", "Jenis_Permukaan": "Aspal", "Kondisi_drainase": "Air bertahan lama karena tidak ada jalur keluar ke parit utama." }, "geometry": { "type": "Point", "coordinates": [ 101.4489, 0.5131 ] } },
                 { "type": "Feature", "properties": { "ID": 62, "Nama Lokasi": "Jalan Kuantan 7", "Jenis_Permukaan": "Aspal", "Kondisi_drainase": "Drainase kecil & tidak terhubung ke saluran besar." }, "geometry": { "type": "Point", "coordinates": [ 101.4487, 0.5126 ] } },
@@ -238,36 +234,42 @@
                 { "type": "Feature", "properties": { "ID": 93, "Nama Lokasi": "Jalan Rambutan – Tangkerang", "Jenis_Permukaan": "Aspal", "Kondisi_drainase": "Parit tersumbat daun & sampah." }, "geometry": { "type": "Point", "coordinates": [ 101.4695, 0.5233 ] } },
                 { "type": "Feature", "properties": { "ID": 94, "Nama Lokasi": "Jalan HOS Cokroaminoto – Dekat Pasar", "Jenis_Permukaan": "Aspal", "Kondisi_drainase": "Sedimentasi berat, aliran lambat." }, "geometry": { "type": "Point", "coordinates": [ 101.4561, 0.5248 ] } },
                 { "type": "Feature", "properties": { "ID": 95, "Nama Lokasi": "Jalan Kakap – Kampung Tengah", "Jenis_Permukaan": "Beton", "Kondisi_drainase": "Genangan lokal karena cekungan." }, "geometry": { "type": "Point", "coordinates": [ 101.4486, 0.5201 ] } },
-                { "type": "Feature", "properties": { "ID": 96, "Nama Lokasi": "Jalan Durian – Sukajadi", "Jenis_Permukaan": "Aspal", "Kondisi_drainase": "Drainase sempit dan tidak menyatu ke saluran besar." }, "geometry": { "type": "Point", "coordinates": [ 101.4402, 0.5201 ] } },
-                { "type": "Feature", "properties": { "ID": 97, "Nama Lokasi": "Jalan Hang Jebat – Senapelan", "Jenis_Permukaan": "Aspal", "Kondisi_drainase": "Drainase tertutup material bangunan." }, "geometry": { "type": "Point", "coordinates": [ 101.4475, 0.5275 ] } },
-                { "type": "Feature", "properties": { "ID": 98, "Nama Lokasi": "Jalan Kayu Manis – Panam", "Jenis_Permukaan": "Aspal", "Kondisi_drainase": "Parit dangkal, sering meluap." }, "geometry": { "type": "Point", "coordinates": [ 101.3833, 0.4829 ] } },
-                { "type": "Feature", "properties": { "ID": 99, "Nama Lokasi": "Jalan Lembah Sari – Kulim", "Jenis_Permukaan": "Aspal", "Kondisi_drainase": "Drainase minim; air mengumpul cepat." }, "geometry": { "type": "Point", "coordinates": [ 101.4511, 0.5033 ] } },
-                { "type": "Feature", "properties": { "ID": 100, "Nama Lokasi": "Jalan Bupati – Rumbai Pesisir", "Jenis_Permukaan": "Aspal", "Kondisi_drainase": "Genangan akibat luapan parit tepi jalan." }, "geometry": { "type": "Point", "coordinates": [ 101.4487, 0.581 ] } }
+                { "type": "Feature", "properties": { "ID": 96, "Nama Lokasi": "Jalan Durian – Sukajadi", "Jenis_Permukaan": "Aspal", "Kondisi_drainase": "Drainase sempit dan tidak menyatu ke saluran besar." }, "geometry": { "type": "Point", "coordinates": [ 101.4402, 0.5201 ] } }
             ]
         };
 
-        // Render Tabel
-        const tableBody = document.querySelector("#tabelData tbody");
+        // --- SCRIPT OTOMATIS PENGISI TABEL ---
+        // Script ini akan mengambil data dari variabel geojsonData di atas
+        // dan memasukkannya ke dalam tbody HTML supaya muncul di layar.
+        
+        const tbody = document.querySelector('#tabelData tbody');
+        const features = geojsonData.features;
 
-        geojsonData.features.forEach(feature => {
+        features.forEach(feature => {
             const props = feature.properties;
-            const coords = feature.geometry.coordinates;
-            const lat = coords[1].toFixed(4);
-            const long = coords[0].toFixed(4);
+            const coords = feature.geometry.coordinates; // [long, lat]
 
-            let badgeClass = "badge-aspal";
-            if(props.Jenis_Permukaan === "Beton") badgeClass = "badge-beton";
-            else if(props.Jenis_Permukaan === "Tanah") badgeClass = "badge-tanah";
+            // Tentukan warna badge berdasarkan jenis permukaan
+            let badgeClass = 'badge-aspal'; // Default hijau
+            if (props.Jenis_Permukaan === 'Beton') {
+                badgeClass = 'badge-beton'; // Orange
+            } else if (props.Jenis_Permukaan === 'Tanah') {
+                badgeClass = 'badge-tanah'; // Coklat
+            }
 
-            const row = document.createElement("tr");
-            row.innerHTML = `
-                <td style="text-align: center; font-weight: bold;">${props.ID}</td>
-                <td>${props['Nama Lokasi']}</td>
-                <td><span class="badge ${badgeClass}">${props.Jenis_Permukaan}</span></td>
-                <td>${props.Kondisi_drainase}</td>
-                <td><span style="font-family: monospace;">${lat}, ${long}</span></td>
+            // Buat baris tabel (HTML string)
+            const row = `
+                <tr>
+                    <td style="text-align: center;">${props.ID}</td>
+                    <td><b>${props['Nama Lokasi']}</b></td>
+                    <td><span class="badge ${badgeClass}">${props.Jenis_Permukaan}</span></td>
+                    <td>${props.Kondisi_drainase}</td>
+                    <td><small>${coords[1].toFixed(5)}, ${coords[0].toFixed(5)}</small></td>
+                </tr>
             `;
-            tableBody.appendChild(row);
+            
+            // Masukkan ke dalam tabel
+            tbody.insertAdjacentHTML('beforeend', row);
         });
     </script>
 
